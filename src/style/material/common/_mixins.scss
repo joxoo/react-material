@@ -1,0 +1,86 @@
+@function rem($sizeValue) {
+    @return ($sizeValue / 16) + rem;
+}
+
+@mixin transition($property, $duration, $ease, $delay) {
+    -webkit-transition: $property $duration $ease $delay;
+    -moz-transition: $property $duration $ease $delay;
+    -ms-transition: $property $duration $ease $delay;
+    -o-transition: $property $duration $ease $delay;
+    transition: $property $duration $ease $delay;
+}
+@mixin transition-multiple($property, $duration, $ease, $delay, $property2, $duration2, $ease2, $delay2) {
+    -webkit-transition: $property $duration $ease $delay, $property2 $duration2 $ease2 $delay2;
+    -moz-transition: $property $duration $ease $delay, $property2 $duration2 $ease2 $delay2;
+    -ms-transition: $property $duration $ease $delay, $property2 $duration2 $ease2 $delay2;
+    -o-transition: $property $duration $ease $delay, $property2 $duration2 $ease2 $delay2;
+    transition: $property $duration $ease $delay, $property2 $duration2 $ease2 $delay2;
+}
+
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property;
+    transform: $property;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $color;
+        -moz-box-shadow:inset $top $left $blur $color;
+        box-shadow:inset $top $left $blur $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+@mixin box-shadow-multiple($top, $left, $blur, $color, $top2, $left2, $blur2, $color2) {
+    -webkit-box-shadow: $top $left $blur $color, $top2 $left2 $blur2 $color2;
+    -moz-box-shadow: $top $left $blur $color, $top2 $left2 $blur2 $color2;
+    box-shadow: $top $left $blur $color, $top2 $left2 $blur2 $color2;
+}
+
+@mixin display-flex($direction: false, $wrap: false) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    @if $direction {
+        -webkit-flex-flow: $direction;
+        -ms-flex-direction: $direction;
+        flex-flow: $direction;
+    }
+    @if $wrap {
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+}
+
+@mixin flex($grow: 1, $shrink: 1, $basic: 0){
+    flex: $grow  $shrink $basic;
+    -ms-flex: $grow  $shrink $basic;
+    -webkit-flex: $grow  $shrink $basic;
+    -webkit-box-flex: $grow;
+}
+
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media (min-width: 70em) { @content ; }
+    }
+    @else if $point == laptop {
+        @media (min-width: 64em) { @content ; }
+    }
+    @else if $point == tablet {
+        @media (min-width: 50em) { @content ; }
+    }
+    @else if $point == mobile {
+        @media (max-width: 50em)  { @content ; }
+
+    }
+}
