@@ -1,0 +1,54 @@
+.flat-button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: transparent;
+    outline: none;
+    display: inline-block;
+    line-height: rem(24);
+    padding: rem(6) rem(8);
+    min-width: rem(88);
+    margin:0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: $fontWeightMedium;
+    text-transform: uppercase;
+    font-size: $fontStyleButtonFontSize;
+    box-sizing: border-box;
+    border: solid rem(6) $windowBackground;
+    overflow: hidden;
+    color: $textColor;
+}
+
+.flat-button-primary{
+    color: $backgroundColorPrimary;
+}
+.flat-button-secondary{
+    color: $backgroundColorSecondary;
+}
+
+.flat-button-label{
+    padding: 0 rem(8);
+    display:inline-block;
+    line-height: rem(24);
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.flat-button:active, .flat-button:focus{
+    .flat-button-tap {
+        @include button-tap-active();
+        border-radius: 0;
+        left: 0;
+        top:0;
+    }
+}
+.flat-button:hover{
+    background-color: rgba(153, 153, 153, 0.2);
+}
+.flat-button-tap {
+    @include button-tap();
+}

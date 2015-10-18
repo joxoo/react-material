@@ -1,0 +1,11 @@
+.avatar {
+    display: inline-block;
+    user-select: none;
+    border-radius: 50%;
+    height: rem(40);
+    width: rem(40);
+}
+
+.avatar-icon {
+    margin: rem(8);
+}

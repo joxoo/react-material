@@ -1,0 +1,61 @@
+.app-bar{
+    z-index: 5;
+    @include display-flex;
+    @include breakpoint(mobile) {
+        min-height: $mobileToolbarHeight;
+        padding: 0 $mobileGutter;
+    }
+    @include breakpoint(tablet) {
+        min-height: $tabletToolbarHeight;
+        padding: 0 $tabletGutter;
+    }
+
+    background-color: $backgroundColorPrimary;
+    color: $textColorPimary;
+    width:100%;
+
+    box-sizing: border-box;
+}
+
+.app-bar-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding-top:0;
+    letter-spacing: 0;
+    font-size: rem(24);
+    font-weight: $fontWeightNormal;
+
+    @include breakpoint(mobile) {
+        line-height: $mobileToolbarHeight;
+    }
+    @include breakpoint(tablet) {
+        line-height: $tabletToolbarHeight;
+    }
+}
+
+.app-bar-main{
+    @include flex(1, 1, auto);
+    box-sizing: border-box;
+    @include breakpoint(mobile) {
+        min-height: $mobileToolbarHeight;
+        padding: 0 $mobileGutter;
+    }
+    @include breakpoint(tablet) {
+        min-height: $tabletToolbarHeight;
+        padding: 0 $tabletGutter;
+    }
+}
+
+.app-bar-icon-button{
+
+}
+.app-bar-icon-left, .app-bar-icon-right{
+    height: $leftNavMenuItemHeight;
+    width: $leftNavMenuItemWidth;
+    align-self: center;
+    .font-icon{
+        color: $textColorPimary;
+    }
+}

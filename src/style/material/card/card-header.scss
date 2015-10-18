@@ -1,0 +1,31 @@
+@import '../common/typography';
+@import '../common/colors';
+
+.card-header{
+    height: rem(72);
+    padding: rem(16);
+    font-weight: $fontWeightMedium;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.card-header-avatar{
+    margin-right: rem(16);
+}
+
+.card-header-text{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card-header-title{
+    color: $darkBlack;
+    display: block;
+    font-size: rem(15);
+}
+
+.card-header-subtitle{
+    color: $lightBlack;
+    display: block;
+    font-size: rem(14);
+}

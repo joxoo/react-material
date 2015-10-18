@@ -1,0 +1,41 @@
+.floating-action-button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: $backgroundColorFloating;
+    outline: none;
+    display: inline-block;
+    color: $textColorPimary;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    @include box-shadow-multiple(0, rem(1), rem(6), rgba(0, 0, 0, 0.12), 0, rem(1), rem(4), rgba(0, 0, 0, 0.24));
+    border-radius: 50%;
+    @include breakpoint(mobile) {
+        margin: $mobileGutter;
+    }
+    @include breakpoint(tablet) {
+        margin: $tabletGutter;
+    }
+
+}
+.floating-action-button-size-normal{
+    width: rem(56);
+    height: rem(56);
+    line-height: rem(56);
+}
+.floating-action-button-size-small{
+    width: rem(40);
+    height: rem(40);
+    line-height: rem(40);
+}
+.floating-action-button:active, .floating-action-button:focus{
+    @include box-shadow-multiple(0, rem(3), rem(10), rgba(0, 0, 0, 0.16), 0, rem(3), rem(10), rgba(0, 0, 0, 0.23));
+    .floating-action-button-tap {
+        @include button-tap-active();
+    }
+}
+.floating-action-button-tap {
+    @include button-tap()
+}

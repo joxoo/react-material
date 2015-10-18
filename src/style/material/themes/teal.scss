@@ -1,0 +1,13 @@
+@import '../common/colors';
+@import '../common/spacing';
+@import '../common/background';
+@import '../common/material-icons';
+
+$colorPrimary: $teal500;
+$colorPrimaryDark: $teal700;
+$textColorPimary: $darkBlack;
+$textColorSecondary: $darkWhite;
+$colorAccent: $brown800;
+$windowBackground: $grey100;
+
+$backgroundOpacity: rgba(0, 0, 0, 0.08);

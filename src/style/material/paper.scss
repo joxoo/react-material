@@ -1,0 +1,38 @@
+.paper{
+    background-color: $white;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: $black;
+}
+
+.paper-depth-1 {
+    @include box-shadow-multiple(0, rem(1), rem(6), rgba(0, 0, 0, 0.12), 0, rem(1), rem(4), rgba(0, 0, 0, 0.24));
+}
+
+.paper-depth-2 {
+    @include box-shadow-multiple(0, rem(3), rem(10), rgba(0, 0, 0, 0.16), 0, rem(3), rem(10), rgba(0, 0, 0, 0.23));
+}
+
+.paper-depth-3 {
+    @include box-shadow-multiple(0, rem(10), rem(30), rgba(0, 0, 0, 0.19), 0, rem(6), rem(10), rgba(0, 0, 0, 0.23));
+}
+
+.paper-depth-4 {
+    @include box-shadow-multiple(0, rem(14), rem(45), rgba(0, 0, 0, 0.25), 0, rem(10), rem(18), rgba(0, 0, 0, 0.22));
+}
+
+.paper-depth-5 {
+    @include box-shadow-multiple(0, rem(19), rem(60), rgba(0, 0, 0, 0.30), 0, rem(15), rem(20), rgba(0, 0, 0, 0.22));
+}
+
+.paper-circle{
+    border-radius: 50%;
+}
+
+.paper-rounded{
+    border-radius: rem(2);
+}
+
+.paper-transition{
+    @include transition(all, 450ms, cubic-bezier(0.23, 1, 0.32, 1), 0ms);
+
+}
