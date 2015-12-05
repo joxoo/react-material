@@ -1,0 +1,5 @@
+--slow 5
+--reporter spec
+--recursive
+--compilers js:babel/register
+--require ./test/setup.js
