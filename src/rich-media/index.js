@@ -27,7 +27,7 @@ class RichMedia extends React.Component {
     }
 
     static getTypeFromSources(sources, type) {
-        return sources.filter(RichMedia.getWithMimeType.bind({ type }))
+        return sources.filter(RichMedia.getWithMimeType.bind({ type }));
     }
 
     render() {
@@ -41,9 +41,9 @@ class RichMedia extends React.Component {
 
         return (
             <div className={ this.getClasses('rich-media', others) }>
-                {audioSources.length > 0 && <Audio sources={ audioSources } {...others} />}
-                {videoSources.length > 0 && <Video sources={ videoSources } {...others} />}
-                {pictureSources.length > 0 && <Picture sources={ pictureSources } {...others} />}
+                { audioSources.length > 0 && <Audio sources={ audioSources } {...others} /> }
+                { videoSources.length > 0 && <Video sources={ videoSources } {...others} /> }
+                { pictureSources.length > 0 && <Picture sources={ pictureSources } {...others} /> }
             </div>
         );
     }

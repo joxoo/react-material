@@ -36,7 +36,7 @@ class Audio extends React.Component {
 
         return (
             <audio {...options} className={ this.getClasses('audio', others) }>
-                {sources.map( (source, key) => (<source key={key} {...source}/>) )}
+                { sources.map( (source, key) => (<source key={ key } {...source}/>) ) }
             </audio>
         );
     }

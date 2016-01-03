@@ -40,7 +40,7 @@ class Video extends React.Component {
 
         return (
             <video { ...options } className={ this.getClasses('video', others) }>
-                {sources.map((source, key) => (<source key={ key } {...source}/>))}
+                { sources.map((source, key) => (<source key={ key } {...source}/>)) }
             </video>
         );
     }

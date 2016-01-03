@@ -27,8 +27,8 @@ class Picture extends React.Component {
 
         return (
             <picture className={ this.getClasses('picture', others) }>
-                {sources.map((source, key) => (<source key={ key } {...source}/>))}
-                {fallback && <img {...fallback} />}
+                { sources.map((source, key) => (<source key={ key } {...source}/>)) }
+                { fallback && <img {...fallback} /> }
             </picture>
         );
     }
