@@ -6,10 +6,15 @@ import { getClasses, MaterialPropTypes } from  '../addons';
 class Audio extends React.Component {
 
     static propTypes = {
-        url : MaterialPropTypes.url.isRequired,
-        contentType: PropTypes.string.isRequired,
+        sources : PropTypes.arrayOf(
+            PropTypes.shape({
+                src: MaterialPropTypes.url.isRequired,
+                type: PropTypes.string.isRequired,
+                title: PropTypes.string
+            })
+        ).isRequired,
         controls: PropTypes.bool,
-        autoPlay: PropTypes.bool
+        autoplay: PropTypes.bool
     };
 
     static defaultProps = {
@@ -19,18 +24,19 @@ class Audio extends React.Component {
 
     render() {
         const {
-            autoPlay,
+            autoplay,
             controls,
-            url,
-            contentType,
+            sources,
             ...others
         } = this.props;
+        const options = {
+            autoplay,
+            controls
+        };
 
         return (
-            <audio controls={ controls ? 'controls' : '' }
-                   autoPlay={ autoPlay ? 'autoplay' : '' }
-                   className={ this.getClasses('audio', others) }>
-                <source src={ url } type={ contentType }/>
+            <audio {...options} className={ this.getClasses('audio', others) }>
+                {sources.map( (source, key) => (<source key={key} {...source}/>) )}
             </audio>
         );
     }

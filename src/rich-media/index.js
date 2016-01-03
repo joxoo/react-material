@@ -2,54 +2,52 @@ import React, { PropTypes } from 'react';
 import { getClasses, MaterialPropTypes } from  '../addons';
 import Audio from './audio';
 import Video from './video';
-import Image from './image';
-
-const richMediaTypes = [ 'audio', 'video', 'image' ];
+import Picture from './picture';
 
 @getClasses
 
 class RichMedia extends React.Component {
 
     static propTypes = {
-        url : MaterialPropTypes.url.isRequired,
-        contentType: PropTypes.string.isRequired
+        sources: PropTypes.arrayOf(PropTypes.shape({
+            src: MaterialPropTypes.url.isRequired,
+            type: PropTypes.string.isRequired,
+            title: PropTypes.string,
+            alt: PropTypes.string,
+            media: PropTypes.string
+        })),
+        controls: PropTypes.bool,
+        autoplay: PropTypes.bool
     };
 
-    static getMediaTypeFromMimeType(contentType) {
-        const type = contentType.split('/').shift();
+    static getWithMimeType(value) {
+        const type = value.type.split('/').shift();
 
-        if (richMediaTypes.indexOf(type.toLowerCase()) !== -1) {
-            return type;
-        }
-        return null;
+        return type.toLowerCase() === this.type;
     }
 
-    renderMedia(mediaType, props) {
-        switch (mediaType) {
-        case 'audio':
-            return ( <Audio {...props} className='rich-media-audio'/> );
-        case 'video':
-            return ( <Video {...props} className='rich-media-video'/> );
-        case 'image':
-            return ( <Image {...props} className='rich-media-image'/> );
-        }
+    static getTypeFromSources(sources, type) {
+        return sources.filter(RichMedia.getWithMimeType.bind({ type }))
     }
 
     render() {
-        const props = this.props;
-        const mediaType = RichMedia.getMediaTypeFromMimeType(props.contentType);
+        const {
+            sources,
+            ...others
+        } = this.props;
+        const audioSources = RichMedia.getTypeFromSources(sources, 'audio');
+        const videoSources = RichMedia.getTypeFromSources(sources, 'video');
+        const pictureSources = RichMedia.getTypeFromSources(sources, 'image');
 
         return (
-            <div className={ this.getClasses('rich-media', this.props) }>
-                { mediaType && this.renderMedia(mediaType, props) }
+            <div className={ this.getClasses('rich-media', others) }>
+                {audioSources.length > 0 && <Audio sources={ audioSources } {...others} />}
+                {videoSources.length > 0 && <Video sources={ videoSources } {...others} />}
+                {pictureSources.length > 0 && <Picture sources={ pictureSources } {...others} />}
             </div>
         );
     }
 }
 
-export default {
-    RichMedia,
-    Image,
-    Audio,
-    Video
-};
+export { Picture, Audio, Video };
+export default RichMedia;

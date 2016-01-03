@@ -3,47 +3,35 @@ import { getClasses, MaterialPropTypes } from  '../addons';
 
 @getClasses
 
-class Video extends React.Component {
+class Picture extends React.Component {
 
     static propTypes = {
         sources : PropTypes.arrayOf(
             PropTypes.shape({
                 src: MaterialPropTypes.url.isRequired,
                 type: PropTypes.string.isRequired,
+                alt: PropTypes.string.isRequired,
+                media: PropTypes.string,
                 title: PropTypes.string
             })
-        ).isRequired,
-        controls: PropTypes.bool,
-        autoplay: PropTypes.bool,
-        poster: MaterialPropTypes.url
-    };
-
-    static defaultProps = {
-        autoplay: false,
-        controls: true
+        ).isRequired
     };
 
     render() {
         const {
-            autoplay,
-            controls,
             sources,
-            poster,
             ...others
             } = this.props;
+        const fallback = sources[0];
 
-        const options = {
-            autoplay,
-            controls,
-            poster
-        };
 
         return (
-            <video { ...options } className={ this.getClasses('video', others) }>
+            <picture className={ this.getClasses('picture', others) }>
                 {sources.map((source, key) => (<source key={ key } {...source}/>))}
-            </video>
+                {fallback && <img {...fallback} />}
+            </picture>
         );
     }
 }
 
-export default Video;
+export default Picture;
