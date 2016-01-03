@@ -52,7 +52,7 @@
   "scripts": {
     "lint": "eslint src",
     "build": "npm run lint && babel --stage 1 ./src --out-dir ./lib",
-    "preinstall": "npm run build",
+    "preinstall": "babel --stage 1 ./src --out-dir ./lib",
     "test": "npm run test:unit:with-coverage",
     "test:unit": "NODE_ENV=test mocha test/unit --opts test/unit/mocha.opts",
     "test:unit:with-coverage": "NODE_ENV=test istanbul cover _mocha test/unit -- --opts test/unit/mocha.opts && istanbul check-coverage"
