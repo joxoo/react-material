@@ -35,6 +35,9 @@ class FlatButton extends React.Component {
         this._handleTouchEnd = this._handleTouchEnd.bind(this);
         this._handleMouseDown = this._handleMouseDown.bind(this);
         this._handleMouseUp = this._handleMouseUp.bind(this);
+
+        this.setTouchReference = this.setTouchReference.bind(this);
+        this.setTouchTapReference = this.setTouchTapReference.bind(this);
     }
 
     _handleTouchStart(event) {
@@ -81,10 +84,10 @@ class FlatButton extends React.Component {
                     onMouseDown={ this._handleMouseDown }
                     onMouseUp={ this._handleMouseUp }
                     disabled={ disabled }
-                    ref='elementTouch'
                     className={ this.getClasses('flat-button', this.props) }
+                    ref={ this.setTouchReference }
                     { ...others } >
-                <span className='flat-button-tap' ref='elementTouchTap' />
+                <span className='flat-button-tap' ref={ this.setTouchTapReference }/>
                 { labelPosition === 'before'?
                     [ buttonLabel, children ]:
                     [ children, buttonLabel ] }

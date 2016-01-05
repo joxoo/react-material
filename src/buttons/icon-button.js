@@ -24,6 +24,8 @@ class IconButton extends React.Component {
         super(...args);
         this._handleTouchEnd = this._handleTouchEnd.bind(this);
         this._handleMouseUp = this._handleMouseUp.bind(this);
+        this.setTouchReference = this.setTouchReference.bind(this);
+        this.setTouchTapReference = this.setTouchTapReference.bind(this);
     }
 
     _handleTouchEnd(event) {
@@ -41,13 +43,8 @@ class IconButton extends React.Component {
         if (props.iconElement) {
             return props.iconElement;
         }
-        if(!props.icon) {
-            return null;
-        }
-
-        return (
-            <FontIcon className={ props.iconClassName } disabled={ props.disabled } icon={ props.icon } />
-        );
+        return props.icon ?
+            <FontIcon className={ props.iconClassName } disabled={ props.disabled } icon={ props.icon } /> : null;
     }
 
     render() {
@@ -62,11 +59,10 @@ class IconButton extends React.Component {
                     onMouseUp={ this._handleMouseUp }
                     disabled={ disabled }
                     className={ this.getClasses('icon-button', { className: className }) }
-                    ref='elementTouch'
+                    ref={ this.setTouchReference }
                     { ...others } >
-                <span className='icon-button-tap' ref='elementTouchTap'/>
+                <span className='icon-button-tap' ref={ this.setTouchTapReference } />
                 { this.renderFontIcon(this.props) }
-
             </button>
         );
     }

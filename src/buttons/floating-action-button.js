@@ -25,6 +25,8 @@ class FloatingActionButton extends React.Component {
         super(...args);
         this._handleTouchEnd = this._handleTouchEnd.bind(this);
         this._handleMouseUp = this._handleMouseUp.bind(this);
+        this.setTouchReference = this.setTouchReference.bind(this);
+        this.setTouchTapReference = this.setTouchTapReference.bind(this);
     }
 
     _handleTouchEnd(event) {
@@ -42,13 +44,8 @@ class FloatingActionButton extends React.Component {
         if (props.iconElement) {
             return props.iconElement;
         }
-        if(!props.icon) {
-            return null;
-        }
-
-        return (
-            <FontIcon className={ props.iconClassName } disabled={ props.disabled } icon={ props.icon } />
-        );
+        return props.icon ?
+            <FontIcon className={ props.iconClassName } disabled={ props.disabled } icon={ props.icon } /> : null;
     }
 
     render() {
@@ -64,9 +61,9 @@ class FloatingActionButton extends React.Component {
                     onMouseUp={ this._handleMouseUp }
                     disabled={ disabled }
                     className={ this.getClasses('floating-action-button', { className, size }) }
-                    ref='elementTouch'
+                    ref={ this.setTouchReference }
                     { ...others } >
-                <span className='floating-action-button-tap' ref='elementTouchTap'/>
+                <span className='floating-action-button-tap' ref={ this.setTouchTapReference }/>
                 { this.renderFontIcon(this.props) }
 
             </button>

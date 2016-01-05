@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 function calculateTouchPoint(node, touche) {
     const rect = node.getBoundingClientRect();
@@ -12,9 +10,17 @@ function calculateTouchPoint(node, touche) {
     };
 }
 
+function setTouchReference(component) {
+    this._touchReference = component;
+}
+
+function setTouchTapReference(component) {
+    this._touchTapReference = component;
+}
+
 function addAnimatedTouchPoint(touch) {
-    const elementTouch = React.findDOMNode(this.refs.elementTouch);
-    const elementTouchTap = React.findDOMNode(this.refs.elementTouchTap);
+    const elementTouch = this._touchReference;
+    const elementTouchTap = this._touchTapReference;
     const touchPoint = calculateTouchPoint(elementTouch, touch);
 
     elementTouchTap.style.left = touchPoint.left + 'px';
@@ -25,7 +31,7 @@ function addAnimatedTouchPoint(touch) {
 }
 
 function removeAnimatedTouchPoint() {
-    const elementTouch = React.findDOMNode(this.refs.elementTouch);
+    const elementTouch = this._touchReference;
 
     setTimeout(() => {
         elementTouch.blur();
@@ -41,6 +47,8 @@ function removeAnimatedTouchPoint() {
 function getClassesDecorator(component) {
     component.prototype.addAnimatedTouchPoint = addAnimatedTouchPoint;
     component.prototype.removeAnimatedTouchPoint = removeAnimatedTouchPoint;
+    component.prototype.setTouchReference = setTouchReference;
+    component.prototype.setTouchTapReference = setTouchTapReference;
 }
 
 export default getClassesDecorator;

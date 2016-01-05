@@ -8,9 +8,9 @@ import RaisedButton from './buttons/raised-button';
 import Card from './card';
 import CardHeader from './card/card-header';
 import Paper from './paper';
-import { RichMedia } from './rich-media';
+import RichMedia from './rich-media';
 
-export default {
+export {
     AppBar,
     Avatar,
     FontIcon,
