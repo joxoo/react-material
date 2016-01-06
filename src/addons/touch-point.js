@@ -38,6 +38,27 @@ function removeAnimatedTouchPoint() {
     }, 500);
 }
 
+function _handleTouchStart(event) {
+    return (event.nativeEvent && event.nativeEvent.targetTouches) ?
+        this.addAnimatedTouchPoint(event.nativeEvent.targetTouches[0]) : null;
+
+}
+
+function _handleTouchEnd(event) {
+    return (event.nativeEvent && event.nativeEvent.targetTouches) ?
+        this.removeAnimatedTouchPoint() : null;
+}
+
+function _handleMouseDown(event) {
+    return (!this.hasTouchEvents() && event.nativeEvent) ?
+        this.addAnimatedTouchPoint(event.nativeEvent) : null;
+}
+
+function _handleMouseUp(event) {
+    return (!this.hasTouchEvents() && event.nativeEvent) ?
+        this.removeAnimatedTouchPoint() : null;
+
+}
 
 /**
  * Makes the given component "calculateTouchPoint".
@@ -49,6 +70,10 @@ function getClassesDecorator(component) {
     component.prototype.removeAnimatedTouchPoint = removeAnimatedTouchPoint;
     component.prototype.setTouchReference = setTouchReference;
     component.prototype.setTouchTapReference = setTouchTapReference;
+    component.prototype._handleMouseDown = _handleMouseDown;
+    component.prototype._handleMouseUp = _handleMouseUp;
+    component.prototype._handleTouchEnd = _handleTouchEnd;
+    component.prototype._handleTouchStart = _handleTouchStart;
 }
 
 export default getClassesDecorator;

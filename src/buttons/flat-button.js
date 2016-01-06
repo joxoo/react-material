@@ -40,28 +40,6 @@ class FlatButton extends React.Component {
         this.setTouchTapReference = this.setTouchTapReference.bind(this);
     }
 
-    _handleTouchStart(event) {
-        return (event.nativeEvent && event.nativeEvent.targetTouches) ?
-            this.addAnimatedTouchPoint(event.nativeEvent.targetTouches[0]) : null;
-
-    }
-
-    _handleTouchEnd(event) {
-        return (event.nativeEvent && event.nativeEvent.targetTouches) ?
-            this.removeAnimatedTouchPoint() : null;
-    }
-
-    _handleMouseDown(event) {
-        return (!this.hasTouchEvents() && event.nativeEvent) ?
-            this.addAnimatedTouchPoint(event.nativeEvent) : null;
-    }
-
-    _handleMouseUp(event) {
-        return (!this.hasTouchEvents() && event.nativeEvent) ?
-            this.removeAnimatedTouchPoint() : null;
-
-    }
-
     renderLabel(label, className) {
         return (label ? <FlatButtonLabel className={ className } label={ label } /> : null );
     }

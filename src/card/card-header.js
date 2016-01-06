@@ -1,32 +1,43 @@
 import React, { PropTypes } from 'react';
 import Avatar from '../avatar';
+import { getClasses } from  '../addons';
+
+@getClasses
 
 class CardHeader extends React.Component {
 
     static propTypes = {
-        avatar: PropTypes.element,
-        title: React.PropTypes.string,
-        subtitle: React.PropTypes.string
+        avatar: PropTypes.shape({
+            background: PropTypes.string,
+            icon: PropTypes.element,
+            src: PropTypes.string
+        }),
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string,
+        level: PropTypes.number
     };
 
-    renderAvatar( avatar ) {
-        if ( React.isValidElement(avatar) ) {
-            return React.cloneElement(avatar, {
-                className: `card-header-avatar ${avatar.className ? avatar.className : ''}`
-            });
-        }
-        return ( <Avatar src={ avatar } className='card-header-avatar' /> );
-    }
+    static defaultProps = {
+        level: 2
+    };
 
     render() {
+        const {
+            avatar,
+            title,
+            subtitle,
+            level,
+            ...others
+        } = this.props;
+        const ComponentTag = `h${level}`;
+
         return (
-            <div className='card-header'>
-                { this.renderAvatar(this.props.avatar) }
+            <div className={ this.getClasses('card-header', others) }>
+                { avatar && <Avatar { ...avatar } className='card-header-avatar' /> }
                 <div className='card-header-text'>
-                    <span className='card-header-title'>{ this.props.title }</span>
-                    <span className='card-header-subtitle'>{ this.props.subtitle }</span>
+                    <ComponentTag className='card-header-title'>{ title }</ComponentTag>
+                    { subtitle && <span className='card-header-subtitle'>{ subtitle }</span> }
                 </div>
-                { this.props.children }
             </div>
         );
     }

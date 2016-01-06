@@ -29,17 +29,6 @@ class FloatingActionButton extends React.Component {
         this.setTouchTapReference = this.setTouchTapReference.bind(this);
     }
 
-    _handleTouchEnd(event) {
-        return (event.nativeEvent && event.nativeEvent.targetTouches) ?
-            this.removeAnimatedTouchPoint() : null;
-    }
-
-    _handleMouseUp(event) {
-        return (!this.hasTouchEvents() && event.nativeEvent) ?
-            this.removeAnimatedTouchPoint() : null;
-
-    }
-
     renderFontIcon( props ) {
         if (props.iconElement) {
             return props.iconElement;
