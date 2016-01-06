@@ -4,6 +4,7 @@ instrumentation:
   excludes:
     - 'src/style/**'
     - 'webpack/**'
+    - 'lib/**'
     - 'index.js'
   embed-source: false
   complete-copy: false
