@@ -22,12 +22,16 @@ class Picture extends React.Component {
             sources,
             ...others
             } = this.props;
-        const fallback = sources[0];
-
+        const fallback = {
+            src: sources[0].src,
+            type: sources[0].type,
+            alt: sources[0].alt
+        };
 
         return (
             <picture className={ this.getClasses('picture', others) }>
-                { sources.map((source, key) => (<source key={ key } {...source}/>)) }
+                { sources.map((source, key) => (
+                    <source key={ key } srcSet={ source.src } media={ source.media } type={ source.type } />)) }
                 { fallback && <img {...fallback} /> }
             </picture>
         );

@@ -34,8 +34,8 @@ describe('Component Picture', function () {
         expect(sources.length).to.equal(1);
 
         const source = sources[0];
-        expect(source.props).have.property('src').to.equal('http://wwww.example.com/example.png');
-        expect(source.props).have.property('type').to.equal('image/png')
+        expect(source.props).have.property('srcSet').to.equal('http://wwww.example.com/example.png');
+        expect(source.props).have.property('type').to.equal('image/png');
 
 
     });

@@ -1,5 +1,6 @@
 import AppBar from './app-bar';
 import Avatar from './avatar';
+import BottomSheet from './bottom-sheet';
 import FontIcon from './font-icon';
 import IconButton from './buttons/icon-button';
 import FlatButton from './buttons/flat-button';
@@ -13,6 +14,7 @@ import RichMedia from './rich-media';
 export {
     AppBar,
     Avatar,
+    BottomSheet,
     FontIcon,
     IconButton,
     FlatButton,
