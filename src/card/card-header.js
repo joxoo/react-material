@@ -8,9 +8,15 @@ class CardHeader extends React.Component {
 
     static propTypes = {
         avatar: PropTypes.shape({
-            background: PropTypes.string,
-            icon: PropTypes.element,
-            src: PropTypes.string
+            icon: PropTypes.shape({
+                color: PropTypes.string,
+                icon: PropTypes.string.isRequired
+            }),
+            image: PropTypes.string,
+            letter:PropTypes.shape({
+                color: PropTypes.string,
+                character: PropTypes.string.isRequired
+            })
         }),
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string,

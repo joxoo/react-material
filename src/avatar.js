@@ -1,42 +1,43 @@
 import React, { PropTypes } from 'react';
 import { getClasses } from './addons';
+import FontIcon from './font-icon';
 
 @getClasses
 
 class Avatar extends React.Component {
 
     static propTypes = {
-        background: PropTypes.string,
-        icon: PropTypes.element,
-        src: PropTypes.string
+        icon: PropTypes.shape({
+            color: PropTypes.string,
+            icon: PropTypes.string.isRequired
+        }),
+        image: PropTypes.string,
+        letter:PropTypes.shape({
+            color: PropTypes.string,
+            character: PropTypes.string.isRequired
+        })
     };
 
-    renderImage(props) {
-        return ( <img src={ props.src } className={ `avatar ${props.className? props.className: ''}` } />);
-    }
-
-    renderIcon(icon) {
-        if (!icon) {
-            return null;
-        }
-        const iconElement = React.cloneElement(icon, {
-            className: this.getClasses('avatar-icon', icon.props)
-        });
-
-        return iconElement;
-    }
-
     render() {
-        const props = this.props;
+        const {
+            icon,
+            image,
+            letter,
+            ...others
+        } = this.props;
 
-        if( props.src ) {
-            return ( this.renderImage(this.props) );
-        }
+        const isImage = Boolean(image);
+        const isIcon = !image && Boolean(icon);
+        const isLetter = !image && !icon && Boolean(letter);
 
         return (
-            <div className={ this.getClasses('avatar', this.props ) }>
-                { this.renderIcon(props.icon) }
-                { this.props.children }
+            <div className={ this.getClasses('avatar', others ) }>
+                { isImage && <img src={ image } className='avatar-image'/> }
+                { isIcon && <FontIcon className='avatar-icon' { ...icon } /> }
+                { isLetter &&
+                    <span className={ this.getClasses('avatar-letter', { color: letter.color }) } >
+                        { letter.character.toUpperCase() }
+                    </span> }
             </div>
         );
     }

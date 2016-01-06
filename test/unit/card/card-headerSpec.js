@@ -28,7 +28,6 @@ describe('Component CardHeader', function () {
     });
     it('render CardHeader component with avatar', function () {
         const avatar = {
-            background: 'test',
             src: 'icon.png'
         };
 
@@ -39,6 +38,5 @@ describe('Component CardHeader', function () {
 
         expect(avatarComponent).to.be.ok;
         expect(avatarComponent.props).have.property('src').to.equal('icon.png');
-        expect(avatarComponent.props).have.property('background').to.equal('test');
     });
 });
