@@ -41,9 +41,12 @@ class RichMedia extends React.Component {
 
         return (
             <div className={ this.getClasses('rich-media', others) }>
-                { audioSources.length > 0 && <Audio sources={ audioSources } {...others} /> }
-                { videoSources.length > 0 && <Video sources={ videoSources } {...others} /> }
-                { pictureSources.length > 0 && <Picture sources={ pictureSources } {...others} /> }
+                { audioSources.length > 0 &&
+                    <Audio className='rich-media-audio' sources={ audioSources } {...others} /> }
+                { videoSources.length > 0 &&
+                    <Video className='rich-media-video' sources={ videoSources } {...others} /> }
+                { pictureSources.length > 0 &&
+                    <Picture className='rich-media-picture' sources={ pictureSources } {...others} /> }
             </div>
         );
     }
