@@ -13,6 +13,7 @@ class Avatar extends React.Component {
         }),
         image: PropTypes.string,
         letter:PropTypes.shape({
+            background: PropTypes.string,
             color: PropTypes.string,
             character: PropTypes.string.isRequired
         })
@@ -30,12 +31,13 @@ class Avatar extends React.Component {
         const isIcon = !image && Boolean(icon);
         const isLetter = !image && !icon && Boolean(letter);
 
+
         return (
             <div className={ this.getClasses('avatar', others ) }>
                 { isImage && <img src={ image } className='avatar-image'/> }
                 { isIcon && <FontIcon className='avatar-icon' { ...icon } /> }
                 { isLetter &&
-                    <span className={ this.getClasses('avatar-letter', { color: letter.color }) } >
+                    <span className={ this.getClasses('avatar-letter', letter) } >
                         { letter.character.toUpperCase() }
                     </span> }
             </div>

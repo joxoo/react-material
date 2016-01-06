@@ -41,8 +41,13 @@ class CardHeader extends React.Component {
             <div className={ this.getClasses('card-header', others) }>
                 { avatar && <Avatar { ...avatar } className='card-header-avatar' /> }
                 <div className='card-header-text'>
-                    <ComponentTag className='card-header-title'>{ title }</ComponentTag>
-                    { subtitle && <span className='card-header-subtitle'>{ subtitle }</span> }
+                    <ComponentTag className={ this.getClasses('card-header-title', { avatar: Boolean(avatar)}) }>
+                        { title }
+                    </ComponentTag>
+                    { subtitle &&
+                        <span className={ this.getClasses('card-header-subtitle', { avatar: Boolean(avatar)}) }>
+                            { subtitle }
+                        </span> }
                 </div>
             </div>
         );

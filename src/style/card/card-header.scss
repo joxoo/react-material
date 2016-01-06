@@ -6,23 +6,34 @@
 }
 
 .card-header-avatar{
-    @include flex;
     margin-right: rem(16);
 }
 
 .card-header-text{
-    @include flex;
+    @include flex(1, 1, auto);
 
 }
 
 .card-header-title{
     color: $darkBlack;
-    margin: 0 0 0.5rem;
+    margin: rem(8) 0 0.5rem;
     display: block;
+    font-size: rem(24);
 }
 
+.card-header-title-avatar {
+    font-size: rem(14);
+    margin: 0 0 0.25rem;
+}
 .card-header-subtitle{
     color: $lightBlack;
     display: block;
     font-size: rem(14);
+    margin-bottom: rem(8);
+}
+.card-header-subtitle-avatar{
+    color: $lightBlack;
+    display: block;
+    font-size: rem(14);
+    margin-bottom: 0;
 }

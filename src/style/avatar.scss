@@ -1,11 +1,18 @@
 .avatar {
-    display: inline-block;
+    text-align: center;
     user-select: none;
-    border-radius: 50%;
     height: rem(40);
     width: rem(40);
 }
 
-.avatar-icon {
-    margin: rem(8);
+.avatar-image {
+    height: rem(40);
+    width: rem(40);
+}
+
+.avatar-letter, .avatar-icon, .avatar-image {
+    border-radius: 50%;
+    font-size: rem(24);
+    line-height: rem(40);
+    display: block;
 }
