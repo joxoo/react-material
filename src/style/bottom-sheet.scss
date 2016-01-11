@@ -1,0 +1,39 @@
+.bottom-sheet {
+    background-color: $fullWhite;
+}
+
+.bottom-sheet-content {
+    position: relative;
+    font-size: rem(16);
+    color: $darkBlack;
+    padding-left: rem(56);
+
+    .list {
+        margin-left: rem(-56);
+        color: $darkBlack;
+    }
+
+    .list-item {
+        height: rem(48);
+        line-height: rem(48);
+        padding: 0;
+
+        .font-icon {
+            margin-right: rem(32);
+            font-size: rem(24);
+        }
+    }
+
+    hr {
+        border: none;
+        background-color: $faintBlack;
+        margin: 0.5rem 0 0.5rem 1rem;
+        height: 1px;
+    }
+}
+
+.bottom-sheet-action-button {
+    position: absolute;
+    right: 0;
+    margin-top: -2rem;
+}

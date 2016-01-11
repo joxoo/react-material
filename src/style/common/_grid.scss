@@ -1,0 +1,69 @@
+$breakpoint-xs: 480;
+$breakpoint-s: 600;
+$breakpoint-m: 840;
+$breakpoint-l: 960;
+$breakpoint-xl: 1280;
+$breakpoint-xxl: 1440;
+$breakpoint-xxxl: 1600;
+
+$gutter-xs: 16;
+$gutter-s: 24;
+$gutter-m: 24;
+$gutter-l: 24;
+$gutter-xl: 24;
+
+$colums-xs: 4;
+$colums-s: 8;
+$colums-m: 12;
+$colums-l: 12;
+$colums-xl: 12;
+
+.row {
+    display: block;
+    width: 100%;
+}
+
+@include breakpoint(null, $breakpoint-xs) {
+    @for $i from 1 through $colums-xs {
+        $size: calculateColumnWidth($colums-xs, $i);
+        .col-sm-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-xs / 2));
+            box-sizing: border-box;
+        }
+        .push-sm-#{$i} {
+            margin-left: $size;
+        }
+    }
+}
+
+@include breakpoint($breakpoint-xs, $breakpoint-l) {
+    @for $i from 1 through $colums-s {
+        $size: calculateColumnWidth($colums-s, $i);
+        .col-md-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-s / 2));
+            box-sizing: border-box;
+        }
+        .push-md-#{$i} {
+            margin-left: $size;
+        }
+    }
+}
+
+@include breakpoint($breakpoint-l) {
+    @for $i from 1 through $colums-m {
+        $size: calculateColumnWidth($colums-l, $i);
+        .col-lg-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-m / 2));
+            box-sizing: border-box;
+        }
+        .push-lg-#{$i} {
+            margin-left: $size;
+        }
+    }
+}

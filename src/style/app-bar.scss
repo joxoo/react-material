@@ -1,11 +1,10 @@
 .app-bar{
     z-index: 5;
     @include display-flex;
-    @include breakpoint(mobile) {
-        min-height: $mobileToolbarHeight;
-        padding: 0 $mobileGutter;
-    }
-    @include breakpoint(tablet) {
+    min-height: $mobileToolbarHeight;
+    padding: 0 $mobileGutter;
+
+    @include breakpoint($breakpoint-m) {
         min-height: $tabletToolbarHeight;
         padding: 0 $tabletGutter;
     }
@@ -26,11 +25,9 @@
     letter-spacing: 0;
     font-size: rem(24);
     font-weight: $fontWeightNormal;
+    line-height: $mobileToolbarHeight;
 
-    @include breakpoint(mobile) {
-        line-height: $mobileToolbarHeight;
-    }
-    @include breakpoint(tablet) {
+    @include breakpoint($breakpoint-m) {
         line-height: $tabletToolbarHeight;
     }
 }
@@ -38,11 +35,9 @@
 .app-bar-main{
     @include flex(1, 1, auto);
     box-sizing: border-box;
-    @include breakpoint(mobile) {
-        min-height: $mobileToolbarHeight;
-        padding: 0 $mobileGutter;
-    }
-    @include breakpoint(tablet) {
+    min-height: $mobileToolbarHeight;
+    padding: 0 $mobileGutter;
+    @include breakpoint($breakpoint-m) {
         min-height: $tabletToolbarHeight;
         padding: 0 $tabletGutter;
     }

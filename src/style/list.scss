@@ -1,0 +1,17 @@
+.list {
+    padding: 0 rem(16);
+}
+
+.list-item {
+    height: rem(48);
+    line-height: rem(48);
+    padding: 0 rem(8);
+
+    .font-icon {
+        margin-right: rem(48);
+    }
+}
+
+.list-item-title-icon {
+    padding-left: rem(56);
+}

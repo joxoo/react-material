@@ -2,6 +2,10 @@
     @return ($sizeValue / 16) + rem;
 }
 
+@function calculateColumnWidth($columns, $number) {
+    @return (100%/$columns*$number);
+}
+
 @mixin transition($property, $duration, $ease, $delay) {
     -webkit-transition: $property $duration $ease $delay;
     -moz-transition: $property $duration $ease $delay;
@@ -69,18 +73,14 @@
     -webkit-box-flex: $grow;
 }
 
-@mixin breakpoint($point) {
-    @if $point == desktop {
-        @media (min-width: 70em) { @content ; }
+@mixin breakpoint($min-width, $max-width: false) {
+    @if $min-width and not $max-width {
+        @media (min-width: rem($min-width)) { @content; }
     }
-    @else if $point == laptop {
-        @media (min-width: 64em) { @content ; }
+    @if $min-width and $max-width {
+        @media (min-width: rem($min-width)) and (max-width: rem($max-width)) { @content; }
     }
-    @else if $point == tablet {
-        @media (min-width: 50em) { @content ; }
-    }
-    @else if $point == mobile {
-        @media (max-width: 50em)  { @content ; }
-
+    @if not $min-width and $max-width {
+        @media (max-width: rem($max-width)) { @content; }
     }
 }

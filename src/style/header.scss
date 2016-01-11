@@ -1,0 +1,18 @@
+.header {
+    padding: rem(16);
+    font-weight: $fontWeightMedium;
+    box-sizing: border-box;
+}
+.header-title {
+    color: $darkBlack;
+    margin: 0 0 0.5rem;
+    display: block;
+    font-size: rem(24);
+}
+
+.header-subtitle {
+    color: $lightBlack;
+    display: block;
+    font-size: rem(14);
+    margin-bottom: rem(8);
+}

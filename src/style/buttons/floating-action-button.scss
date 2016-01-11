@@ -12,10 +12,8 @@
     position: relative;
     @include box-shadow-multiple(0, rem(1), rem(6), rgba(0, 0, 0, 0.12), 0, rem(1), rem(4), rgba(0, 0, 0, 0.24));
     border-radius: 50%;
-    @include breakpoint(mobile) {
-        margin: $mobileGutter;
-    }
-    @include breakpoint(tablet) {
+    margin: $mobileGutter;
+    @include breakpoint($breakpoint-m) {
         margin: $tabletGutter;
     }
 

@@ -8,6 +8,8 @@ import FloatingActionButton from './buttons/floating-action-button';
 import RaisedButton from './buttons/raised-button';
 import Card from './card';
 import CardHeader from './card/card-header';
+import Header from './header';
+import List from './list';
 import Paper from './paper';
 import RichMedia from './rich-media';
 
@@ -22,6 +24,8 @@ export {
     RaisedButton,
     Card,
     CardHeader,
+    Header,
+    List,
     Paper,
     RichMedia
 };
