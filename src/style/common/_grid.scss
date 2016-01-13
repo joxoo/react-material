@@ -53,8 +53,8 @@ $colums-xl: 12;
     }
 }
 
-@include breakpoint($breakpoint-l) {
-    @for $i from 1 through $colums-m {
+@include breakpoint($breakpoint-l, $breakpoint-xl) {
+    @for $i from 1 through $colums-l {
         $size: calculateColumnWidth($colums-l, $i);
         .col-lg-#{$i} {
             display: inline-block;
@@ -63,6 +63,21 @@ $colums-xl: 12;
             box-sizing: border-box;
         }
         .push-lg-#{$i} {
+            margin-left: $size;
+        }
+    }
+}
+
+@include breakpoint($breakpoint-xl) {
+    @for $i from 1 through $colums-xl {
+        $size: calculateColumnWidth($colums-xl, $i);
+        .col-xlg-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-m / 2));
+            box-sizing: border-box;
+        }
+        .push-xlg-#{$i} {
             margin-left: $size;
         }
     }

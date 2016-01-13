@@ -4,9 +4,11 @@ const gridClasses = {
     smPush: 'push-sm',
     mdPush: 'push-md',
     lgPush: 'push-lg',
+    xlgPush: 'push-xlg',
     sm: 'col-sm',
     md: 'col-md',
-    lg: 'col-lg'
+    lg: 'col-lg',
+    xlg: 'col-xlg'
 };
 
 function getClasses(prefix, props) {
