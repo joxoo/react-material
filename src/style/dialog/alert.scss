@@ -1,0 +1,47 @@
+.dialog-alert {
+    margin: 5% 12.5%;
+    overflow: overlay;
+    @include box-shadow-multiple(0, rem(24), rem(24), rgba(0, 0, 0, 0.25), 0, rem(16), rem(16), rgba(0, 0, 0, 0.22));
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: $fullWhite;
+
+}
+
+.dialog-alert-content {
+    padding: rem(24);
+}
+
+.dialog-alert-title {
+    align-self: flex-start;
+    margin-bottom: rem(20);
+    font-size: rem(24);
+
+}
+
+.dialog-alert-content-box {
+    @media screen and (orientation:portrait) {
+        max-height: 48.6vh;
+    }
+    @media screen and (orientation:landscape) {
+        max-height: 19vw;
+    }
+    overflow: auto;
+}
+.dialog-alert-content {
+    padding: rem(24);
+}
+
+.dialog-alert-actions {
+    text-align: right;
+    padding: rem(8);
+
+    .flat-button {
+        border: none;
+        color: $textColorSecondary;
+        min-width: rem(64);
+    }
+
+    .flat-button:first-child {
+        margin-right: rem(8);
+    }
+}

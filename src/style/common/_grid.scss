@@ -31,6 +31,7 @@ $colums-xl: 12;
             width: $size;
             padding: 0 rem(($gutter-xs / 2));
             box-sizing: border-box;
+            vertical-align: top;
         }
         .push-sm-#{$i} {
             margin-left: $size;
@@ -38,7 +39,7 @@ $colums-xl: 12;
     }
 }
 
-@include breakpoint($breakpoint-xs, $breakpoint-l) {
+@include breakpoint($breakpoint-xs, $breakpoint-l - 1) {
     @for $i from 1 through $colums-s {
         $size: calculateColumnWidth($colums-s, $i);
         .col-md-#{$i} {
@@ -46,6 +47,7 @@ $colums-xl: 12;
             width: $size;
             padding: 0 rem(($gutter-s / 2));
             box-sizing: border-box;
+            vertical-align: top;
         }
         .push-md-#{$i} {
             margin-left: $size;
@@ -53,7 +55,7 @@ $colums-xl: 12;
     }
 }
 
-@include breakpoint($breakpoint-l, $breakpoint-xl) {
+@include breakpoint($breakpoint-l, $breakpoint-xl - 1) {
     @for $i from 1 through $colums-l {
         $size: calculateColumnWidth($colums-l, $i);
         .col-lg-#{$i} {
@@ -61,6 +63,7 @@ $colums-xl: 12;
             width: $size;
             padding: 0 rem(($gutter-m / 2));
             box-sizing: border-box;
+            vertical-align: top;
         }
         .push-lg-#{$i} {
             margin-left: $size;
@@ -76,6 +79,7 @@ $colums-xl: 12;
             width: $size;
             padding: 0 rem(($gutter-m / 2));
             box-sizing: border-box;
+            vertical-align: top;
         }
         .push-xlg-#{$i} {
             margin-left: $size;

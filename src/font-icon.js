@@ -6,6 +6,7 @@ import { getClasses } from './addons';
 class FontIcon extends  React.Component {
 
     static propTypes = {
+        background: PropTypes.string,
         color: PropTypes.string,
         icon: PropTypes.string
     };

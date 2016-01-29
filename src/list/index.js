@@ -44,7 +44,7 @@ class List extends React.Component {
 
         return (
             <ul className={ this.getClasses('list', others) }>
-                { items.map((item, key) => (<ListItem key={ key } hasIcon={ hasIcons } { ...item } />)) }
+                { items.map((item, key) => (<ListItem key={ key } hasIcon={ key !== 0 && hasIcons } { ...item } />)) }
                 { children }
             </ul>
         );

@@ -16,7 +16,7 @@ function getClasses(prefix, props) {
     _.forIn(props, (value, key ) => {
 
         if (value === true) {
-            return classes.push(`${prefix}-${key}`);
+            return classes.push(`${prefix}-${key.toLowerCase()}`);
         }
         if (Object.keys(gridClasses).indexOf(key) !== -1 ) {
             return classes.push(`${gridClasses[key]}-${value}`);
