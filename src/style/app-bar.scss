@@ -2,11 +2,11 @@
     z-index: 5;
     @include display-flex;
     min-height: $mobileToolbarHeight;
-    padding: 0 $mobileGutter;
+    padding: 0 rem(8);
 
     @include breakpoint($breakpoint-m) {
         min-height: $tabletToolbarHeight;
-        padding: 0 $tabletGutter;
+        padding: 0 rem(16);
     }
 
     background-color: $backgroundColorPrimary;
@@ -47,8 +47,6 @@
 
 }
 .app-bar-icon-left, .app-bar-icon-right{
-    height: $leftNavMenuItemHeight;
-    width: $leftNavMenuItemWidth;
     align-self: center;
     .font-icon{
         color: $textColorPimary;

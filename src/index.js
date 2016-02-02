@@ -2,6 +2,7 @@ import AppBar from './app-bar';
 import Avatar from './avatar';
 import BottomSheet from './bottom-sheet';
 import DialogAlert from './dialog/alert';
+import DialogFullScreen from './dialog/full-screen';
 import FontIcon from './font-icon';
 import IconButton from './buttons/icon-button';
 import FlatButton from './buttons/flat-button';
@@ -15,14 +16,18 @@ import ListItem from './list/item';
 import Paper from './paper';
 import RichMedia from './rich-media';
 import getClasses from './addons/get-classes';
+import hasTouchEvents from './addons/has-touch-events';
+import touchPoint from './addons/touch-point';
 
 export {
     AppBar,
     Avatar,
     BottomSheet,
     DialogAlert,
+    DialogFullScreen,
     FontIcon,
     getClasses,
+    hasTouchEvents,
     IconButton,
     FlatButton,
     FloatingActionButton,
@@ -33,6 +38,7 @@ export {
     List,
     ListItem,
     Paper,
-    RichMedia
+    RichMedia,
+    touchPoint
 };
 

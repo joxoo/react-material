@@ -6,3 +6,13 @@
         transform: translate(-50%, 50%)
     }
 }
+
+@keyframes dialogwrapper {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@-webkit-keyframes dialogwrapper{
+    from { opacity: 0 }
+    to { opacity: 1 }
+}

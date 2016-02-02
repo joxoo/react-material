@@ -6,17 +6,17 @@
     position: relative;
     font-size: rem(16);
     color: $darkBlack;
-    padding-left: rem(56);
 
+    .header {
+        padding-left: rem(72);
+    }
     .list {
-        margin-left: rem(-56);
         color: $darkBlack;
     }
 
     .list-item {
         height: rem(48);
         line-height: rem(48);
-        padding: 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
