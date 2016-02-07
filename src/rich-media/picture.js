@@ -32,7 +32,7 @@ class Picture extends React.Component {
             <picture className={ this.getClasses('picture', others) }>
                 { sources.map((source, key) => (
                     <source key={ key } srcSet={ source.src } media={ source.media } type={ source.type } />)) }
-                { fallback && <img {...fallback} /> }
+                { fallback && <img {...fallback} {...others} /> }
             </picture>
         );
     }

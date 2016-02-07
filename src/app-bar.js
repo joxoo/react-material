@@ -10,8 +10,8 @@ import FontIcon from './font-icon';
 class AppBar extends React.Component {
 
     static propTypes = {
-        onLeftIconButtonTouchTap: PropTypes.func,
-        onRightIconButtonTouchTap: PropTypes.func,
+        onLeftIconButtonClick: PropTypes.func,
+        onRightIconButtonClick: PropTypes.func,
         showMenuIconButton: PropTypes.bool,
         iconLeft: PropTypes.string,
         iconRight: PropTypes.string,
@@ -29,8 +29,8 @@ class AppBar extends React.Component {
 
     constructor(...args) {
         super(...args);
-        this._onLeftIconButtonTouchTap = this._onLeftIconButtonTouchTap.bind(this);
-        this._onRightIconButtonTouchTap = this._onRightIconButtonTouchTap.bind(this);
+        this._onLeftIconButtonClick = this._onLeftIconButtonClick.bind(this);
+        this._onRightIconButtonClick = this._onRightIconButtonClick.bind(this);
     }
 
     /* eslint  no-console: 0 */
@@ -71,7 +71,7 @@ class AppBar extends React.Component {
                 <IconButton
                     className='app-bar-icon-left'
                     iconElement={ child }
-                    onTouchTap={ this._onLeftIconButtonTouchTap } />
+                    onClick={ this._onLeftIconButtonClick } />
             );
         }
     }
@@ -108,21 +108,21 @@ class AppBar extends React.Component {
                     className='app-bar-icon-right'
                     iconClassName='app-bar-icon-button'
                     icon={ iconRight }
-                    onTouchTap={ this._onRightIconButtonTouchTap } />
+                    onClick={ this._onRightIconButtonClick } />
             );
         }
         return null;
     }
 
-    _onLeftIconButtonTouchTap(event) {
-        if (this.props.onLeftIconButtonTouchTap) {
-            this.props.onLeftIconButtonTouchTap(event);
+    _onLeftIconButtonClick(event) {
+        if (this.props.onLeftIconButtonClick) {
+            this.props.onLeftIconButtonClick(event);
         }
     }
 
-    _onRightIconButtonTouchTap(event) {
-        if (this.props.onRightIconButtonTouchTap) {
-            this.props.onRightIconButtonTouchTap(event);
+    _onRightIconButtonClick(event) {
+        if (this.props.onRightIconButtonClick) {
+            this.props.onRightIconButtonClick(event);
         }
     }
 
