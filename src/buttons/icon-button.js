@@ -12,7 +12,7 @@ class IconButton extends React.Component {
         className: PropTypes.string,
         disabled: PropTypes.bool,
         icon: PropTypes.string,
-        iconClassName: PropTypes.string,
+        color: PropTypes.string,
         iconElement: PropTypes.element
     };
 
@@ -33,13 +33,16 @@ class IconButton extends React.Component {
             return props.iconElement;
         }
         return props.icon ?
-            <FontIcon className={ props.iconClassName } disabled={ props.disabled } icon={ props.icon } /> : null;
+            <FontIcon { ...props } /> : null;
     }
 
     render() {
         const {
             disabled,
             className,
+            icon,
+            iconElement,
+            color,
             ...others
             } = this.props;
 
@@ -48,10 +51,9 @@ class IconButton extends React.Component {
                     onMouseUp={ this._handleMouseUp }
                     disabled={ disabled }
                     className={ this.getClasses('icon-button', { className: className }) }
-                    ref={ this.setTouchReference }
-                    { ...others } >
+                    ref={ this.setTouchReference } {...others} >
                 <span className='icon-button-tap' ref={ this.setTouchTapReference } />
-                { this.renderFontIcon(this.props) }
+                { this.renderFontIcon({ color, icon, iconElement }) }
             </button>
         );
     }

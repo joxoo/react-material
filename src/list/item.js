@@ -20,7 +20,7 @@ class ListItem extends React.Component {
         } = this.props;
 
         return (
-            <li className={ this.getClasses('list-item', others) }>
+            <li className={ this.getClasses('list-item', others) } { ...others } >
                 { icon && <FontIcon className='list-item-icon' icon={ icon } /> }
                 { title && <span className={ `list-item-title` }>{ title }</span> }
                 { children }

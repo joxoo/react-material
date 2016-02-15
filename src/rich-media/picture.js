@@ -12,6 +12,7 @@ class Picture extends React.Component {
                 type: PropTypes.string.isRequired,
                 alt: PropTypes.string.isRequired,
                 media: PropTypes.string,
+                sizes: PropTypes.string,
                 title: PropTypes.string
             })
         ).isRequired
@@ -30,8 +31,10 @@ class Picture extends React.Component {
 
         return (
             <picture className={ this.getClasses('picture', others) }>
-                { sources.map((source, key) => (
-                    <source key={ key } srcSet={ source.src } media={ source.media } type={ source.type } />)) }
+                { sources.map((props, key) => {
+                    const { src, ...attributes } = props;
+                    return <source key={ key } srcSet={ src } {...attributes} />;
+                }) }
                 { fallback && <img {...fallback} {...others} /> }
             </picture>
         );

@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import {getClasses, pureRender } from './addons';
+import shallowCompare from 'react-addons-shallow-compare';
+import { getClasses } from './addons';
 import Paper from './paper';
 import IconButton from './buttons/icon-button';
 import FontIcon from './font-icon';
 
 @getClasses
-@pureRender
 
 class AppBar extends React.Component {
 
@@ -50,6 +50,10 @@ class AppBar extends React.Component {
                 );
             }
         }
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return shallowCompare(this, nextProps, nextState);
     }
 
     renderMenuElementLeft( props ) {

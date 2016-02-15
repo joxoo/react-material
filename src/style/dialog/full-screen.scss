@@ -11,4 +11,10 @@
 
 .dialog-fullscreen-content {
     padding-top: rem(16);
+    height:  calc(100% - 48px);
+    overflow-y: auto;
+
+    @include breakpoint($breakpoint-m) {
+        height: calc(100% - 56px);
+    }
 }
