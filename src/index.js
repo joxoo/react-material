@@ -1,4 +1,5 @@
 import AppBar from './app-bar';
+import AutoComplete from './text-fields/auto-complete';
 import Avatar from './avatar';
 import BottomSheet from './bottom-sheet';
 import DialogAlert from './dialog/alert';
@@ -15,12 +16,14 @@ import List from './list/index';
 import ListItem from './list/item';
 import Paper from './paper';
 import RichMedia from './rich-media';
+import SearchFilter from './text-fields/search-filter';
 import getClasses from './addons/get-classes';
 import hasTouchEvents from './addons/has-touch-events';
 import touchPoint from './addons/touch-point';
 
 export {
     AppBar,
+    AutoComplete,
     Avatar,
     BottomSheet,
     DialogAlert,
@@ -39,6 +42,7 @@ export {
     ListItem,
     Paper,
     RichMedia,
+    SearchFilter,
     touchPoint
 };
 

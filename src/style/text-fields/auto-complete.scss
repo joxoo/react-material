@@ -1,0 +1,57 @@
+.auto-complete {
+    position: fixed;
+    z-index: 10;
+    @include display-flex;
+    min-height: $mobileToolbarHeight;
+    padding: 0 rem(8);
+
+    @include breakpoint($breakpoint-m) {
+        min-height: $tabletToolbarHeight;
+        padding: 0 rem(16);
+    }
+
+    background-color: $backgroundColorPrimary;
+    color: $textColorPimary;
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+.auto-complete-input {
+    @include flex(1, 1, auto);
+    box-sizing: border-box;
+    min-height: $mobileToolbarHeight;
+    padding: 0 $mobileGutter;
+    @include breakpoint($breakpoint-m) {
+        min-height: $tabletToolbarHeight;
+        padding: 0 $tabletGutter;
+    }
+    > input {
+        width: 100%;
+        outline: none;
+        color: $textColorPimary;
+        background-color: $backgroundColorPrimary;
+        font-size: rem(24);
+        font-weight: $fontWeightNormal;
+        line-height: $mobileToolbarHeight;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+        @include breakpoint($breakpoint-m) {
+            line-height: $tabletToolbarHeight;
+        }
+    }
+    > input:focus {
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.auto-complete-icon-left, .auto-complete-icon-right {
+    align-self: center;
+    .font-icon {
+        color: $textColorPimary;
+    }
+}

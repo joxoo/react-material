@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { getClasses } from  '../addons';
+import DialogOverlay from './overlay';
+import DialogWrapper from './wrapper';
 import FlatButton from '../buttons/flat-button';
 
 @getClasses
@@ -29,8 +31,8 @@ class DialogAlert extends React.Component {
         } = this.props;
 
         return (
-            <div className='dialog-wrapper'>
-                <div className='dialog-overlay'>
+            <DialogWrapper>
+                <DialogOverlay>
                     <div className={ this.getClasses('dialog-alert', others) }>
                         <div className='dialog-alert-content'>
                             { title && <h4 className='dialog-alert-title'>{ title }</h4> }
@@ -41,8 +43,8 @@ class DialogAlert extends React.Component {
                             <FlatButton {...agree} />
                         </div>
                     </div>
-                </div>
-            </div>
+                </DialogOverlay>
+            </DialogWrapper>
         );
     }
 }

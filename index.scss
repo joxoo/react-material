@@ -10,3 +10,11 @@
 @import './src/style/header';
 @import './src/style/list';
 @import './src/style/rich-media';
+@import 'src/style/text-fields/auto-complete';
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
