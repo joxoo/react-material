@@ -8,7 +8,11 @@ class ListItem extends React.Component {
 
     static propTypes = {
         title: PropTypes.string,
-        icon: PropTypes.string
+        icon: PropTypes.oneOfType([ PropTypes.string, PropTypes.shape({
+            background: PropTypes.string,
+            color: PropTypes.string,
+            icon: PropTypes.string
+        }) ])
     };
 
     render() {
@@ -18,10 +22,11 @@ class ListItem extends React.Component {
             children,
             ...others
         } = this.props;
+        const fontIcon = typeof icon === 'string' ? { icon } : icon;
 
         return (
             <li className={ this.getClasses('list-item', others) } { ...others } >
-                { icon && <FontIcon className='list-item-icon' icon={ icon } /> }
+                { fontIcon && <FontIcon className='list-item-icon' {...fontIcon} /> }
                 { title && <span className={ `list-item-title` }>{ title }</span> }
                 { children }
             </li>

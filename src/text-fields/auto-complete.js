@@ -53,21 +53,27 @@ class AutoComplete extends React.Component {
         const {
             placeholder,
             data,
+            children,
             ...others
         } = this.props;
 
         const autoComplete = () => {
             return (
                 <div className={ this.getClasses('auto-complete', others ) }>
-                    <IconButton className='auto-complete-icon-left'
-                                icon='arrow_back' onClick={ this.handleClose.bind(this) }/>
-                    <div className='auto-complete-input'>
-                        <input type='search' ref={ (ref) => this.autoCompleteInput = ref } value={ this.state.value }
-                               placeholder={ placeholder } onInput={ this.handleOnInput.bind(this) } autoFocus />
+                    <div className='auto-complete-search'>
+                        <IconButton className='auto-complete-icon-left'
+                                    icon='arrow_back' onClick={ this.handleClose.bind(this) }/>
+                        <div className='auto-complete-input'>
+                            <input type='search' ref={ (ref) => this.autoCompleteInput = ref }
+                                   value={ this.state.value }
+                                   placeholder={ placeholder }
+                                   onInput={ this.handleOnInput.bind(this) } autoFocus />
+                        </div>
+                        <IconButton className='auto-complete-icon-right'
+                                    icon='close' onClick={ this.handleClear.bind(this) }/>
                     </div>
-                    <IconButton className='auto-complete-icon-right'
-                                icon='close' onClick={ this.handleClear.bind(this) }/>
                     { data.length > 0 && this.renderData(data) }
+                    { children && <div className='auto-complete-results'>{ children }</div> }
                 </div>
             );
         };
