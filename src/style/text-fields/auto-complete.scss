@@ -30,12 +30,11 @@
         padding: 0 rem(16);
     }
     .list-item {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        white-space: nowrap;
-        overflow: hidden;
-
         .font-icon {
             margin-right: rem(35);
+            @include breakpoint($breakpoint-m) {
+                margin-right: rem(48);
+            }
         }
     }
 }

@@ -23,8 +23,7 @@ class FloatingActionButton extends React.Component {
 
     constructor(...args) {
         super(...args);
-        this._handleTouchEnd = this._handleTouchEnd.bind(this);
-        this._handleMouseUp = this._handleMouseUp.bind(this);
+        this._handleAnmation = this._handleAnmation.bind(this);
         this.setTouchReference = this.setTouchReference.bind(this);
         this.setTouchTapReference = this.setTouchTapReference.bind(this);
     }
@@ -46,8 +45,8 @@ class FloatingActionButton extends React.Component {
             } = this.props;
 
         return (
-            <button onTouchEnd={ this._handleTouchEnd }
-                    onMouseUp={ this._handleMouseUp }
+            <button onTouchStart={ this._handleAnmation }
+                    onMouseDown={ this._handleAnmation }
                     disabled={ disabled }
                     className={ this.getClasses('floating-action-button', { className, size }) }
                     ref={ this.setTouchReference }

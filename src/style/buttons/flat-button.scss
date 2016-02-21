@@ -43,4 +43,7 @@
 }
 .flat-button-tap {
     @include button-tap();
+    &.tap-active {
+        border-radius: 0;
+    }
 }

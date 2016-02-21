@@ -24,13 +24,10 @@ function addAnimatedTouchPoint(touch) {
 
     elementTouchTap.style.left = touchPoint.left + 'px';
     elementTouchTap.style.top = touchPoint.top + 'px';
-    elementTouchTap.style.width = '28px';
-    elementTouchTap.style.height = '28px';
-
-    setTimeout(() => {
-        elementTouchTap.style = null;
-        elementTouchTap.classList.add('tap-active');
-    }, 250);
+    elementTouchTap.style.width = '2px';
+    elementTouchTap.style.height = '2px';
+    elementTouchTap.style = null;
+    elementTouchTap.classList.add('tap-active');
 
 }
 /* eslint no-console: 0 */
@@ -38,35 +35,17 @@ function addAnimatedTouchPoint(touch) {
 function removeAnimatedTouchPoint() {
     const elementTouchTap = this._touchTapReference;
 
-    setTimeout(() => {
+    if (elementTouchTap) {
         elementTouchTap.style = null;
         elementTouchTap.classList.remove('tap-active');
-    }, 250);
-}
-
-function _handleTouchStart(event) {
-    if (event.nativeEvent && event.nativeEvent.targetTouches) {
-        this.addAnimatedTouchPoint(event.nativeEvent.targetTouches[0]);
-    }
-
-}
-
-function _handleTouchEnd(event) {
-    return (event.nativeEvent && event.nativeEvent.targetTouches) ?
-        this.removeAnimatedTouchPoint() : null;
-}
-
-function _handleMouseDown(event) {
-    if (!this.hasTouchEvents()) {
-        this.addAnimatedTouchPoint(event.nativeEvent);
     }
 }
 
-function _handleMouseUp() {
-    if (!this.hasTouchEvents()) {
-        this.removeAnimatedTouchPoint();
-    }
+function _handleAnimation(event) {
+    const nativeEvent = event.nativeEvent.targetTouches ? event.nativeEvent.targetTouches[0] : event.nativeEvent;
 
+    this.addAnimatedTouchPoint(nativeEvent);
+    setTimeout(this.removeAnimatedTouchPoint.bind(this), 500);
 }
 
 /**
@@ -79,10 +58,7 @@ function getClassesDecorator(component) {
     component.prototype.removeAnimatedTouchPoint = removeAnimatedTouchPoint;
     component.prototype.setTouchReference = setTouchReference;
     component.prototype.setTouchTapReference = setTouchTapReference;
-    component.prototype._handleMouseDown = _handleMouseDown;
-    component.prototype._handleMouseUp = _handleMouseUp;
-    component.prototype._handleTouchEnd = _handleTouchEnd;
-    component.prototype._handleTouchStart = _handleTouchStart;
+    component.prototype._handleAnmation = _handleAnimation;
 }
 
 export default getClassesDecorator;

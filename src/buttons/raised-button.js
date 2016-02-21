@@ -31,10 +31,7 @@ class RaisedButton extends React.Component {
 
     constructor(...args) {
         super(...args);
-        this._handleTouchStart = this._handleTouchStart.bind(this);
-        this._handleTouchEnd = this._handleTouchEnd.bind(this);
-        this._handleMouseDown = this._handleMouseDown.bind(this);
-        this._handleMouseUp = this._handleMouseUp.bind(this);
+        this._handleAnmation = this._handleAnmation.bind(this);
 
         this.setTouchReference = this.setTouchReference.bind(this);
         this.setTouchTapReference = this.setTouchTapReference.bind(this);
@@ -57,10 +54,8 @@ class RaisedButton extends React.Component {
         const buttonLabel = this.renderLabel(label, labelClassName, children);
 
         return (
-            <button onTouchStart={ this._handleTouchStart }
-                    onTouchEnd={ this._handleTouchEnd }
-                    onMouseDown={ this._handleMouseDown }
-                    onMouseUp={ this._handleMouseUp }
+            <button onTouchStart={ this._handleAnmation }
+                    onMouseDown={ this._handleAnmation }
                     disabled={ disabled }
                     className={ this.getClasses('raised-button', this.props) }
                     ref={ this.setTouchReference }

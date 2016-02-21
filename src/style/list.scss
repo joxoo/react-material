@@ -1,4 +1,5 @@
 .list-item {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     position: relative;
     height: rem(48);
     line-height: rem(48);
@@ -9,10 +10,18 @@
     }
 }
 
+.list-item-content {
+    display: inline-block;
+}
+
 .list-item-hasicon .list-item-title {
     padding-left: rem(56);
 }
 
 .list-item-tap {
-    @include button-tap()
+    @include button-tap();
+
+    &.tap-active {
+        border-radius: 0;
+    }
 }

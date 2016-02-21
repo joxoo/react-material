@@ -22,10 +22,7 @@ class IconButton extends React.Component {
 
     constructor(...args) {
         super(...args);
-        this._handleTouchStart = this._handleTouchStart.bind(this);
-        this._handleTouchEnd = this._handleTouchEnd.bind(this);
-        this._handleMouseDown = this._handleMouseDown.bind(this);
-        this._handleMouseUp = this._handleMouseUp.bind(this);
+        this._handleAnmation = this._handleAnmation.bind(this);
 
         this.setTouchReference = this.setTouchReference.bind(this);
         this.setTouchTapReference = this.setTouchTapReference.bind(this);
@@ -50,10 +47,8 @@ class IconButton extends React.Component {
             } = this.props;
 
         return (
-            <button onTouchEnd={ this._handleTouchEnd }
-                    onTouchStart={ this._handleTouchStart }
-                    onMouseDown={ this._handleMouseDown }
-                    onMouseUp={ this._handleMouseUp }
+            <button onTouchStart={ this._handleAnmation }
+                    onMouseDown={ this._handleAnmation }
                     disabled={ disabled }
                     className={ this.getClasses('icon-button', { className: className }) }
                     ref={ this.setTouchReference } {...others} >
