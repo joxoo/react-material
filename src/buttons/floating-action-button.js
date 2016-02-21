@@ -12,6 +12,7 @@ class FloatingActionButton extends React.Component {
         className: PropTypes.string,
         disabled: PropTypes.bool,
         icon: PropTypes.string,
+        color: PropTypes.string,
         iconClassName: PropTypes.string,
         iconElement: PropTypes.element,
         size: PropTypes.oneOf([ 'small', 'normal' ])
@@ -33,7 +34,8 @@ class FloatingActionButton extends React.Component {
             return props.iconElement;
         }
         return props.icon ?
-            <FontIcon className={ props.iconClassName } disabled={ props.disabled } icon={ props.icon } /> : null;
+            <FontIcon className={ props.iconClassName } color={ props.color }
+                      disabled={ props.disabled } icon={ props.icon } /> : null;
     }
 
     render() {
