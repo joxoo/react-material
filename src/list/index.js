@@ -1,4 +1,4 @@
-import React, { PropTypes, Children } from 'react';
+import React, { PropTypes } from 'react';
 import { getClasses } from  '../addons';
 import ListItem from './item';
 
@@ -10,19 +10,7 @@ class List extends React.Component {
         items: PropTypes.arrayOf(PropTypes.shape({
             title: PropTypes.string.isRequired,
             icon: PropTypes.string
-        })),
-        children: (props, propName, componentName) => {
-            const children = props[propName];
-            let error = null;
-
-            Children.forEach(children, (child) => {
-                if (child.type !== ListItem) {
-                    error =  new Error(`'${componentName}' should have children of type ListItem`);
-                }
-            });
-            return error;
-        }
-
+        }))
     };
 
     static defaultProps = {

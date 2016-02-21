@@ -2,7 +2,8 @@
     position: fixed;
     z-index: 10;
     width: 100%;
-
+    display: table;
+    height: 100%;
 }
 .auto-complete-search {
     @include display-flex;
@@ -21,12 +22,15 @@
 .auto-complete-results {
     @include box-shadow-multiple(0, rem(1), rem(6), rgba(0, 0, 0, 0.12), 0, rem(1), rem(4), rgba(0, 0, 0, 0.24));
     background-color: $fullWhite;
-    padding: 0 rem(8);
+    padding: 0 rem(16);
+    max-height: 100%;
+    overflow-x: auto;
 
     @include breakpoint($breakpoint-m) {
         padding: 0 rem(16);
     }
     .list-item {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         white-space: nowrap;
         overflow: hidden;
 

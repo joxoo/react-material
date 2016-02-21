@@ -16,11 +16,6 @@
     position: relative;
 }
 
-.icon-button:active, .icon-button:focus{
-    .icon-button-tap {
-        @include button-tap-active();
-    }
-}
 .icon-button-tap {
     @include button-tap()
 }

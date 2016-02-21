@@ -1,12 +1,11 @@
-
 function calculateTouchPoint(node, touche) {
     const rect = node.getBoundingClientRect();
     const touchPageX = touche.pageX;
     const touchPageY = touche.pageY;
 
     return {
-        left: ((rect.left - touchPageX) * -1) - (rect.width / 2),
-        top:  ((rect.top - touchPageY) * -1) - (rect.height / 2)
+        left: touchPageX - rect.left - 28,
+        top:  touchPageY - rect.top - 28
     };
 }
 
@@ -24,23 +23,31 @@ function addAnimatedTouchPoint(touch) {
     const touchPoint = calculateTouchPoint(elementTouch, touch);
 
     elementTouchTap.style.left = touchPoint.left + 'px';
+    elementTouchTap.style.top = touchPoint.top + 'px';
+    elementTouchTap.style.width = '28px';
+    elementTouchTap.style.height = '28px';
 
     setTimeout(() => {
-        elementTouchTap.style.left = '';
+        elementTouchTap.style = null;
+        elementTouchTap.classList.add('tap-active');
+    }, 250);
+
+}
+/* eslint no-console: 0 */
+
+function removeAnimatedTouchPoint() {
+    const elementTouchTap = this._touchTapReference;
+
+    setTimeout(() => {
+        elementTouchTap.style = null;
+        elementTouchTap.classList.remove('tap-active');
     }, 250);
 }
 
-function removeAnimatedTouchPoint() {
-    const elementTouch = this._touchReference;
-
-    setTimeout(() => {
-        elementTouch.blur();
-    }, 500);
-}
-
 function _handleTouchStart(event) {
-    return (event.nativeEvent && event.nativeEvent.targetTouches) ?
-        this.addAnimatedTouchPoint(event.nativeEvent.targetTouches[0]) : null;
+    if (event.nativeEvent && event.nativeEvent.targetTouches) {
+        this.addAnimatedTouchPoint(event.nativeEvent.targetTouches[0]);
+    }
 
 }
 
@@ -50,13 +57,15 @@ function _handleTouchEnd(event) {
 }
 
 function _handleMouseDown(event) {
-    return (!this.hasTouchEvents() && event.nativeEvent) ?
-        this.addAnimatedTouchPoint(event.nativeEvent) : null;
+    if (!this.hasTouchEvents()) {
+        this.addAnimatedTouchPoint(event.nativeEvent);
+    }
 }
 
-function _handleMouseUp(event) {
-    return (!this.hasTouchEvents() && event.nativeEvent) ?
-        this.removeAnimatedTouchPoint() : null;
+function _handleMouseUp() {
+    if (!this.hasTouchEvents()) {
+        this.removeAnimatedTouchPoint();
+    }
 
 }
 

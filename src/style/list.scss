@@ -1,4 +1,5 @@
 .list-item {
+    position: relative;
     height: rem(48);
     line-height: rem(48);
     padding: 0 rem(16);
@@ -10,4 +11,8 @@
 
 .list-item-hasicon .list-item-title {
     padding-left: rem(56);
+}
+
+.list-item-tap {
+    @include button-tap()
 }

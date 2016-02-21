@@ -43,12 +43,6 @@
 
 .raised-button:active, .raised-button:focus{
     @include box-shadow-multiple(0, rem(3), rem(10), rgba(0, 0, 0, 0.16), 0, rem(3), rem(10), rgba(0, 0, 0, 0.23));
-    .raised-button-tap {
-        @include button-tap-active();
-        border-radius: 0;
-        left: 0;
-        top:0;
-    }
 }
 .raised-button-tap {
     @include button-tap();

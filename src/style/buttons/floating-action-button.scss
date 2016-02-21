@@ -30,9 +30,6 @@
 }
 .floating-action-button:active, .floating-action-button:focus{
     @include box-shadow-multiple(0, rem(3), rem(10), rgba(0, 0, 0, 0.16), 0, rem(3), rem(10), rgba(0, 0, 0, 0.23));
-    .floating-action-button-tap {
-        @include button-tap-active();
-    }
 }
 .floating-action-button-tap {
     @include button-tap()

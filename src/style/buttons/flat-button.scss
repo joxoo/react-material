@@ -38,14 +38,6 @@
     vertical-align: middle;
 }
 
-.flat-button:active, .flat-button:focus{
-    .flat-button-tap {
-        @include button-tap-active();
-        border-radius: 0;
-        left: 0;
-        top:0;
-    }
-}
 .flat-button:hover{
     background-color: rgba(153, 153, 153, 0.2);
 }

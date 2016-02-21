@@ -16,3 +16,14 @@
     from { opacity: 0 }
     to { opacity: 1 }
 }
+
+@keyframes tap {
+    from { width: rem(56) }
+    to { width: 100% }
+}
+
+@-webkit-keyframes dialogwrapper{
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
