@@ -10,6 +10,7 @@ class ListItem extends React.Component {
 
     static propTypes = {
         title: PropTypes.string,
+        subtitle: PropTypes.string,
         icon: PropTypes.oneOfType([ PropTypes.string, PropTypes.shape({
             background: PropTypes.string,
             color: PropTypes.string,
@@ -33,7 +34,7 @@ class ListItem extends React.Component {
     }
 
     render() {
-        const { title, icon, touchable, children, ...others } = this.props;
+        const { title, icon, touchable, subtitle, children, ...others } = this.props;
         const fontIcon = typeof icon === 'string' ? { icon } : icon;
         const handleOnClick = others.onClick;
 
@@ -54,7 +55,8 @@ class ListItem extends React.Component {
             <li className={ this.getClasses('list-item', others) } { ...others } >
                 { fontIcon && <FontIcon className='list-item-icon' {...fontIcon} /> }
                 <div className='list-item-content'>
-                    { title && <span className={ `list-item-title` }>{ title }</span> }
+                    { title && <span className='list-item-title'>{ title }</span> }
+                    { subtitle && <span className='list-item-subtitle'>{ subtitle }</span> }
                     { children }
                 </div>
                 { touchable && <span className='list-item-tap' ref={ this.setTouchTapReference } /> }

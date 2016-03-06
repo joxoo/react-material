@@ -8,7 +8,8 @@ const gridClasses = {
     sm: 'col-sm',
     md: 'col-md',
     lg: 'col-lg',
-    xlg: 'col-xlg'
+    xlg: 'col-xlg',
+    xxlg: 'col-xxlg'
 };
 
 function getClasses(prefix, props) {

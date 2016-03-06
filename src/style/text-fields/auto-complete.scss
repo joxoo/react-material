@@ -29,14 +29,6 @@
     @include breakpoint($breakpoint-m) {
         padding: 0 rem(16);
     }
-    .list-item {
-        .font-icon {
-            margin-right: rem(35);
-            @include breakpoint($breakpoint-m) {
-                margin-right: rem(48);
-            }
-        }
-    }
 }
 
 .auto-complete-input {

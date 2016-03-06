@@ -26,7 +26,6 @@ function addAnimatedTouchPoint(touch) {
     elementTouchTap.style.top = touchPoint.top + 'px';
     elementTouchTap.style.width = '2px';
     elementTouchTap.style.height = '2px';
-    elementTouchTap.style = null;
     elementTouchTap.classList.add('tap-active');
 
 }
@@ -36,7 +35,10 @@ function removeAnimatedTouchPoint() {
     const elementTouchTap = this._touchTapReference;
 
     if (elementTouchTap) {
-        elementTouchTap.style = null;
+        elementTouchTap.style.left = null;
+        elementTouchTap.style.top = null;
+        elementTouchTap.style.width = null;
+        elementTouchTap.style.height = null;
         elementTouchTap.classList.remove('tap-active');
     }
 }

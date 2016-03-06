@@ -17,6 +17,7 @@ $colums-s: 8;
 $colums-m: 12;
 $colums-l: 12;
 $colums-xl: 12;
+$colums-xxl: 12;
 
 .row {
     display: block;
@@ -82,6 +83,22 @@ $colums-xl: 12;
             vertical-align: top;
         }
         .push-xlg-#{$i} {
+            margin-left: $size;
+        }
+    }
+}
+
+@include breakpoint($breakpoint-xxl) {
+    @for $i from 1 through $colums-xxl {
+        $size: calculateColumnWidth($colums-xxl, $i);
+        .col-xxlg-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-m / 2));
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .push-xxlg-#{$i} {
             margin-left: $size;
         }
     }
