@@ -16,10 +16,11 @@ class BottomSheet extends React.Component {
     };
 
     render() {
+        const { modal, ...others, children } = this.props;
         return (
-            <div className={ this.getClasses('bottom-sheet', this.props) }>
-                { this.props.modal && <div className='bottom-sheet-layer' /> }
-                <div className='bottom-sheet-content'>{ this.props.children }</div>
+            <div { ...others } className={ this.getClasses('bottom-sheet', { ...others }) }>
+                { modal && <div className='bottom-sheet-layer' /> }
+                <div className='bottom-sheet-content'>{ children }</div>
             </div>
         );
     }

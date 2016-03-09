@@ -34,11 +34,11 @@ class ListItem extends React.Component {
     }
 
     render() {
-        const { title, icon, touchable, subtitle, children, ...others } = this.props;
+        const { title, icon, subtitle, children, ...others } = this.props;
         const fontIcon = typeof icon === 'string' ? { icon } : icon;
         const handleOnClick = others.onClick;
 
-        if (touchable) {
+        if (others.touchable) {
             Object.assign(others, {
                 ref: this.setTouchReference,
                 onClick: (...args) => {
@@ -46,20 +46,19 @@ class ListItem extends React.Component {
                     if (handleOnClick) {
                         handleOnClick(...args);
                     }
-
                 }
             });
         }
 
         return (
-            <li className={ this.getClasses('list-item', others) } { ...others } >
+            <li { ...others } className={ this.getClasses('list-item', others) } >
                 { fontIcon && <FontIcon className='list-item-icon' {...fontIcon} /> }
                 <div className='list-item-content'>
-                    { title && <span className='list-item-title'>{ title }</span> }
+                    { title && <strong className='list-item-title'>{ title }</strong> }
                     { subtitle && <span className='list-item-subtitle'>{ subtitle }</span> }
                     { children }
                 </div>
-                { touchable && <span className='list-item-tap' ref={ this.setTouchTapReference } /> }
+                { others.touchable && <span className='list-item-tap' ref={ this.setTouchTapReference } /> }
             </li>
         );
     }

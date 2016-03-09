@@ -54,12 +54,11 @@ class FlatButton extends React.Component {
         const buttonLabel = this.renderLabel(label, labelClassName, children);
 
         return (
-            <button onTouchStart={ this._handleAnmation }
+            <button { ...others } onTouchStart={ this._handleAnmation }
                     onMouseDown={ this._handleAnmation }
                     disabled={ disabled }
                     className={ this.getClasses('flat-button', this.props) }
-                    ref={ this.setTouchReference }
-                    { ...others } >
+                    ref={ this.setTouchReference }>
                 <span className='flat-button-tap' ref={ this.setTouchTapReference }/>
                 { labelPosition === 'before'?
                     [ buttonLabel, children ]:

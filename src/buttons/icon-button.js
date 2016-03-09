@@ -47,11 +47,11 @@ class IconButton extends React.Component {
             } = this.props;
 
         return (
-            <button onTouchStart={ this._handleAnmation }
+            <button {...others} onTouchStart={ this._handleAnmation }
                     onMouseDown={ this._handleAnmation }
                     disabled={ disabled }
                     className={ this.getClasses('icon-button', { className: className }) }
-                    ref={ this.setTouchReference } {...others} >
+                    ref={ this.setTouchReference } >
                 <span className='icon-button-tap' ref={ this.setTouchTapReference } />
                 { this.renderFontIcon({ color, icon, iconElement }) }
             </button>

@@ -11,10 +11,10 @@ class FloatingActionButton extends React.Component {
     static  propTypes= {
         className: PropTypes.string,
         disabled: PropTypes.bool,
-        icon: PropTypes.string,
-        color: PropTypes.string,
-        iconClassName: PropTypes.string,
-        iconElement: PropTypes.element,
+        icon: PropTypes.oneOfType([ PropTypes.string, PropTypes.shape({
+            icon: PropTypes.string.isRequired,
+            color: PropTypes.string
+        })]),
         size: PropTypes.oneOf([ 'small', 'normal' ])
     };
 
@@ -29,13 +29,10 @@ class FloatingActionButton extends React.Component {
         this.setTouchTapReference = this.setTouchTapReference.bind(this);
     }
 
-    renderFontIcon( props ) {
-        if (props.iconElement) {
-            return props.iconElement;
-        }
-        return props.icon ?
-            <FontIcon className={ props.iconClassName } color={ props.color }
-                      disabled={ props.disabled } icon={ props.icon } /> : null;
+    renderFontIcon( icon ) {
+        const iconProps = typeof icon === 'string' ? { icon } : icon;
+
+        return iconProps ? <FontIcon { ...iconProps } /> : null;
     }
 
     render() {
@@ -43,6 +40,7 @@ class FloatingActionButton extends React.Component {
             disabled,
             className,
             size,
+            icon,
             ...others
             } = this.props;
 
@@ -54,7 +52,7 @@ class FloatingActionButton extends React.Component {
                     ref={ this.setTouchReference }
                     { ...others } >
                 <span className='floating-action-button-tap' ref={ this.setTouchTapReference }/>
-                { this.renderFontIcon(this.props) }
+                { this.renderFontIcon(icon) }
 
             </button>
         );

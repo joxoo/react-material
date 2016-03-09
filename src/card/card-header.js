@@ -38,7 +38,7 @@ class CardHeader extends React.Component {
         const ComponentTag = `h${level}`;
 
         return (
-            <div className={ this.getClasses('card-header', others) }>
+            <div {...others} className={ this.getClasses('card-header', others) }>
                 { avatar && <Avatar { ...avatar } className='card-header-avatar' /> }
                 <div className='card-header-text'>
                     <ComponentTag className={ this.getClasses('card-header-title', { avatar: Boolean(avatar)}) }>
