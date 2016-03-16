@@ -44,6 +44,7 @@ function createUrlTypeChecker() {
     function validate(props, propName, componentName, location, propFullName) {
         const propValue = props[propName];
         const propType = getPropType(propValue);
+        const uri = propValue.substr(0, 2) === '//' ? `http:${propValue}` : propValue;
         const locationName = ReactPropTypeLocationNames[location];
         if (propType !== 'string') {
             return new Error(
@@ -51,9 +52,9 @@ function createUrlTypeChecker() {
                 `supplied to \`${componentName}\`, expected \`uri_string\`.`
             );
         }
-        if(!validUrl.isUri(props[propName])) {
+        if(!validUrl.isUri(uri)) {
             return new Error(
-                `Invalid ${locationName} \`${propFullName}\` of type \`${propType}\` ` +
+                `Invalid ${locationName} \`${propFullName}\` \`${propValue}\` of type \`${propType}\` ` +
                 `supplied to \`${componentName}\`, expected \`valid url\`.`
             );
         }

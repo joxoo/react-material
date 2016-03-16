@@ -10,7 +10,7 @@ class Picture extends React.Component {
             PropTypes.shape({
                 src: MaterialPropTypes.url.isRequired,
                 type: PropTypes.string.isRequired,
-                alt: PropTypes.string.isRequired,
+                alt: PropTypes.string,
                 media: PropTypes.string,
                 sizes: PropTypes.string,
                 title: PropTypes.string

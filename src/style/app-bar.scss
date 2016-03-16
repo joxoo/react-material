@@ -3,26 +3,24 @@
     @include display-flex;
     min-height: $mobileToolbarHeight;
     padding: 0 rem(8);
+    background-color: $backgroundColorPrimary;
+    color: $textColorPimary;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
 
     @include breakpoint($breakpoint-m) {
         min-height: $tabletToolbarHeight;
         padding: 0 rem(16);
     }
 
-    background-color: $backgroundColorPrimary;
-    color: $textColorPimary;
-    width:100%;
-
-    box-sizing: border-box;
 }
 
 .app-bar-title{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0;
-    padding-top:0;
-    letter-spacing: 0;
+    max-width: calc(100% - 56px);
     font-size: rem(24);
     font-weight: $fontWeightNormal;
     line-height: $mobileToolbarHeight;
@@ -45,7 +43,11 @@
 
 .app-bar-icon-left, .app-bar-icon-right{
     align-self: center;
-    .font-icon{
+    .font-icon, .flat-button {
         color: $textColorPimary;
+    }
+    .flat-button {
+        border: none;
+        padding: rem(8) 0;
     }
 }

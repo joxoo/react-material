@@ -17,6 +17,7 @@ import ListItem from './list/item';
 import Paper from './paper';
 import RichMedia from './rich-media';
 import SearchFilter from './text-fields/search-filter';
+import InputText from './form/input-text';
 import getClasses from './addons/get-classes';
 import hasTouchEvents from './addons/has-touch-events';
 import touchPoint from './addons/touch-point';
@@ -40,6 +41,7 @@ export {
     Header,
     List,
     ListItem,
+    InputText,
     Paper,
     RichMedia,
     SearchFilter,

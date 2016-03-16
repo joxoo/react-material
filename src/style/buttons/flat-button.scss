@@ -18,7 +18,8 @@
     text-transform: uppercase;
     font-size: $fontStyleButtonFontSize;
     box-sizing: border-box;
-    border: solid rem(6) $windowBackground;
+    border: solid rem(6) transparent;
+;
     overflow: hidden;
     color: $textColor;
 }

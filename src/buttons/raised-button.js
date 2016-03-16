@@ -38,7 +38,7 @@ class RaisedButton extends React.Component {
     }
 
     renderLabel(label, className) {
-        return (label ? <RaisedButtonLabel className={ className } label={ label } /> : null );
+        return (label ? <RaisedButtonLabel key={ label } className={ className } label={ label } /> : null );
     }
 
     render() {
@@ -52,6 +52,7 @@ class RaisedButton extends React.Component {
             } = this.props;
 
         const buttonLabel = this.renderLabel(label, labelClassName, children);
+        const childs = labelPosition === 'before' ? [ buttonLabel, children ] : [ children, buttonLabel ];
 
         return (
             <button { ...others } onTouchStart={ this._handleAnmation }
@@ -60,9 +61,7 @@ class RaisedButton extends React.Component {
                     className={ this.getClasses('raised-button', this.props) }
                     ref={ this.setTouchReference } >
                 <span className='raised-button-tap'  ref={ this.setTouchTapReference }/>
-                { labelPosition === 'before'?
-                    [ buttonLabel, children ]:
-                    [ children, buttonLabel ] }
+                { childs }
             </button>
         );
     }
