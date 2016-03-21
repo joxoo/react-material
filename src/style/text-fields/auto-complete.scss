@@ -22,7 +22,7 @@
 .auto-complete-results {
     @include box-shadow-multiple(0, rem(1), rem(6), rgba(0, 0, 0, 0.12), 0, rem(1), rem(4), rgba(0, 0, 0, 0.24));
     background-color: $fullWhite;
-    padding: 0 rem(16);
+    max-width: 100vw;
     max-height: 100vh;
     overflow-x: auto;
 
