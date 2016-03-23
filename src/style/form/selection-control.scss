@@ -1,0 +1,32 @@
+.selection-control-item {
+    display: block;
+    font-size: rem(16);
+    padding: rem(8) 0;
+
+    input[type=checkbox]:checked + .selection-control-label:before {
+        animation-name: selection-control;
+        animation-duration: 500ms;
+        content: 'check_box';
+        color: $colorInputActive;
+    }
+}
+
+.selection-control-field {
+    display: none;
+}
+
+.selection-control-label {
+    display: inline-block;
+    line-height: rem(24);
+}
+.selection-control-checkbox .selection-control-label:before {
+    @extend .font-icon;
+    content: 'check_box_outline_blank';
+    display: inline-block;
+    margin-right: rem(16);
+}
+
+@keyframes selection-control {
+    from {transform: scale(0);}
+    to { transform: scale(1);}
+}
