@@ -1,8 +1,8 @@
 .card-header{
+    @include display-flex;
     padding: rem(16);
     font-weight: $fontWeightMedium;
     box-sizing: border-box;
-    @include display-flex;
 }
 
 .card-header-avatar{

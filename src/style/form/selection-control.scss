@@ -3,11 +3,23 @@
     font-size: rem(16);
     padding: rem(8) 0;
 
-    input[type=checkbox]:checked + .selection-control-label:before {
+    input:checked + .selection-control-label:before {
         animation-name: selection-control;
         animation-duration: 500ms;
         content: 'check_box';
         color: $colorInputActive;
+    }
+
+    input[type=checkbox]:checked + .selection-control-label:before {
+        content: 'check_box';
+    }
+
+    input[type=radio]:checked + .selection-control-label:before {
+        content: 'radio_button_checked';
+    }
+
+    input:disabled + .selection-control-label:before,  input:disabled + .selection-control-label {
+        color: $minBlack;
     }
 }
 
@@ -19,11 +31,19 @@
     display: inline-block;
     line-height: rem(24);
 }
-.selection-control-checkbox .selection-control-label:before {
+
+.selection-control-label:before {
     @extend .font-icon;
-    content: 'check_box_outline_blank';
     display: inline-block;
     margin-right: rem(16);
+    vertical-align: top;
+}
+.selection-control-checkbox .selection-control-label:before {
+    content: 'check_box_outline_blank';
+}
+
+.selection-control-radio .selection-control-label:before {
+    content: 'radio_button_unchecked';
 }
 
 @keyframes selection-control {

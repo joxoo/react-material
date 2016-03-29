@@ -15,12 +15,19 @@ class SelectionControl extends React.Component {
             value: PropTypes.string.isRequired,
             disabled: PropTypes.bool
         })).isRequired,
-        labelBefore: PropTypes.bool
+        labelBefore: PropTypes.bool,
+        onClick: PropTypes.func
     };
 
     static defaultProps = {
         labelBefore: false
     };
+
+    handleOnClick( value ) {
+        if (this.props.onClick) {
+            this.props.onClick( value );
+        }
+    }
 
     render() {
         const { type, checked, name, controls, ...others } = this.props;
@@ -36,7 +43,7 @@ class SelectionControl extends React.Component {
                     return (
                         <label className='selection-control-item' key={ `section-control-item-${key}` }>
                             <input className='selection-control-field' { ... {type, name, disabled, value } }
-                                   defaultChecked={ checked } />
+                                   defaultChecked={ checked } onClick={ this.handleOnClick.bind(this, value) }/>
                             <span className='selection-control-label'>{ label }</span>
                         </label>
                     );

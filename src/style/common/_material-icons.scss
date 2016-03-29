@@ -22,8 +22,10 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    font-feature-settings: 'liga' 1;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga' 1;
     -moz-font-feature-settings: 'liga' 1;
+    -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }

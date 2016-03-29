@@ -54,6 +54,9 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+
     @if $direction {
         -webkit-flex-flow: $direction;
         -ms-flex-direction: $direction;
@@ -66,11 +69,12 @@
     }
 }
 
-@mixin flex($grow: 1, $shrink: 1, $basic: 0){
-    flex: $grow  $shrink $basic;
-    -ms-flex: $grow  $shrink $basic;
-    -webkit-flex: $grow  $shrink $basic;
+@mixin flex($grow: 1, $shrink: 1, $basic: 0) {
     -webkit-box-flex: $grow;
+    -moz-box-flex: $grow;
+    -webkit-flex: $grow  $shrink $basic;
+    -ms-flex: $grow  $shrink $basic;
+    flex: $grow  $shrink $basic;
 }
 
 @mixin breakpoint($min-width, $max-width: false) {
