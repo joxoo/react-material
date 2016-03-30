@@ -1,0 +1,23 @@
+.progress-linear {
+    height: rem(4);
+    width: 100%;
+    background: $backgroundColorSecondary;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-linear-indeterminate {
+    .progress-bar {
+        content: " ";
+        width: 33%;
+        height: rem(4);
+        display: block;
+        background: $backgroundColorPrimary;
+        animation: linear-indeterminate 1s linear infinite;
+    }
+}
+
+@keyframes linear-indeterminate {
+    from { transform: translateX(-100%) }
+    to { transform: translateX(300%) }
+}

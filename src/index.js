@@ -17,6 +17,8 @@ import ListItem from './list/item';
 import Paper from './paper';
 import RichMedia from './rich-media';
 import SearchFilter from './text-fields/search-filter';
+import Snackbar from './snackbar';
+import ProgressLinear from './progress/linear';
 import InputText from './form/input-text';
 import SelectionControl from './form/selection-control';
 import getClasses from './addons/get-classes';
@@ -47,6 +49,8 @@ export {
     Paper,
     RichMedia,
     SearchFilter,
+    Snackbar,
+    ProgressLinear,
     touchPoint
 };
 
