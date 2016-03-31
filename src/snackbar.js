@@ -18,7 +18,8 @@ class Snackbar extends React.Component {
             <div {...others} className={ this.getClasses('snackbar', others) }>
                 <div className='snackbar-content'>
                     <span className='snackbar-message'>{ message }</span>
-                    <span className='snackbar-action' onClick={ actionHandler } >{ actionLabel }</span>
+                    { actionHandler && <span className='snackbar-action' onClick={ actionHandler } >
+                        { actionLabel }</span> }
                 </div>
             </div>
         );
