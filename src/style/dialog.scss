@@ -21,4 +21,23 @@
     display: table-cell;
     vertical-align: middle;
 
+    .bottom-sheet {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0 auto;
+        @include breakpoint($breakpoint-l) {
+            width: calc(100% - 128px);
+            left: rem(64);
+        }
+        @include breakpoint($breakpoint-xl) {
+            width: calc(100% - 256px);
+            left: rem(128);
+        }
+        @include breakpoint($breakpoint-xl) {
+            width: calc(100% - 378px);
+            left: rem(196);
+        }
+    }
+
 }
