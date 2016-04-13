@@ -15,6 +15,7 @@
     align-self: flex-start;
     margin-bottom: rem(20);
     font-size: rem(24);
+    font-weight: 400;
 
 }
 
@@ -26,6 +27,7 @@
         max-height: 19vw;
     }
     overflow: auto;
+    color: $grey600;
 }
 .dialog-alert-content {
     padding: rem(24);
