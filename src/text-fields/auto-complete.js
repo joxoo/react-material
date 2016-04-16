@@ -25,11 +25,12 @@ class AutoComplete extends React.Component {
 
     constructor(...args) {
         super(...args);
-        this.state = { value: this.props.value };
+        this.state = { defaultValue: this.props.value };
     }
 
     handleClear() {
-        this.setState({ value: '' });
+        this.state = { defaultValue: '' };
+        this.autoCompleteInput.value = '';
         this.autoCompleteInput.focus();
     }
 
@@ -38,9 +39,9 @@ class AutoComplete extends React.Component {
     }
 
     handleOnInput() {
-        const value = this.autoCompleteInput.value;
-        this.props.onInput(value);
-        this.setState({ value });
+        const defaultValue = this.autoCompleteInput.value;
+        this.props.onInput(defaultValue);
+        this.setState({ defaultValue });
     }
 
     renderData(data) {
@@ -65,9 +66,10 @@ class AutoComplete extends React.Component {
                                     icon='arrow_back' onClick={ this.handleClose.bind(this) }/>
                         <div className='auto-complete-input'>
                             <input type='search' ref={ (ref) => this.autoCompleteInput = ref }
-                                   value={ this.state.value }
+                                   defaultValue={ this.state.defaultValue }
                                    placeholder={ placeholder }
-                                   onInput={ this.handleOnInput.bind(this) } autoFocus />
+                                   autoComplete='off'
+                                   onChange={ this.handleOnInput.bind(this) } autoFocus />
                         </div>
                         <IconButton className='auto-complete-icon-right'
                                     icon='close' onClick={ this.handleClear.bind(this) }/>

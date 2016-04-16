@@ -18,7 +18,7 @@ class DialogAlert extends React.Component {
         disagree: PropTypes.shape({
             label: PropTypes.string.isRequired,
             onClick: PropTypes.func.isRequired
-        }).isRequired
+        })
     };
     render() {
         const {
@@ -39,7 +39,7 @@ class DialogAlert extends React.Component {
                             <div className='dialog-alert-content-box'>{ content ? content : children }</div>
                         </div>
                         <div className='dialog-alert-actions'>
-                            <FlatButton {...disagree} />
+                            { disagree !== null && <FlatButton {...disagree} /> }
                             <FlatButton {...agree} />
                         </div>
                     </div>
