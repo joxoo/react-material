@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-
 import { getClasses } from '../addons';
+import Header from '../header';
 
 @getClasses
 
@@ -18,6 +18,7 @@ class SelectionControl extends React.Component {
         })).isRequired,
         labelBefore: PropTypes.bool,
         onClick: PropTypes.func
+        title: PropType.string
     };
 
     static defaultProps = {
@@ -31,7 +32,7 @@ class SelectionControl extends React.Component {
     }
 
     render() {
-        const { type, checked, name, controls, ...others } = this.props;
+        const { type, checked, name, controls, title, ...others } = this.props;
         const classes = Object.assign(others, {
             checkbox: type === 'checkbox',
             radio: type === 'radio'
@@ -39,6 +40,7 @@ class SelectionControl extends React.Component {
 
         return(
             <fieldset className={ this.getClasses('selection-control', classes) }>
+                { title && <Header title={ titles } level={ 4 } /> }
                 { controls.map((control, key) => {
                     const { disabled, label, value, count } = control;
                     return (
