@@ -39,7 +39,7 @@ class DialogAlert extends React.Component {
                             <div className='dialog-alert-content-box'>{ content ? content : children }</div>
                         </div>
                         <div className='dialog-alert-actions'>
-                            { disagree !== null && <FlatButton {...disagree} /> }
+                            { disagree && <FlatButton {...disagree} /> }
                             <FlatButton {...agree} />
                         </div>
                     </div>

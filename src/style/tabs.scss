@@ -1,0 +1,47 @@
+.tabs {
+    @include display-flex;
+    position: relative;
+    background: $backgroundColorPrimary;
+    justify-content: center;
+    .tab-button {
+        @include flex(1, 1, auto);
+        position: relative;
+        outline: none;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        background: $backgroundColorPrimary;
+        color: $textColorPimary;
+        border: none;
+        height: rem(48);
+        font-size: rem(14);
+        max-width: rem(264);
+        min-width: rem(72);
+        box-sizing: border-box;
+        padding: 0 rem(12);
+        text-transform: uppercase;
+        @include breakpoint($breakpoint-s) {
+            min-width: rem(160);
+        }
+    }
+
+    .tabs-slide {
+        @include transition-multiple(width, 0.25s, linear, 0s, left, 0.25s, linear, 0s);
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        background: $colorTabSelected;
+        max-width: rem(264);
+        min-width: rem(72);
+        @include breakpoint($breakpoint-s) {
+            min-width: rem(160);
+        }
+    }
+    .tab-button-tap {
+        @include button-tap(rgba(255, 255, 255, 0.7));
+        &.tap-active {
+            border-radius: 0;
+        }
+    }
+}

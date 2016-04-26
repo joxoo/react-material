@@ -31,7 +31,12 @@
     display: inline-block;
     line-height: rem(24);
 }
-
+.selection-control-count {
+    font-size: rem(12);
+    display: inline-block;
+    padding: 0 rem(8);
+    color: $grey500;
+}
 .selection-control-label:before {
     @extend .font-icon;
     display: inline-block;

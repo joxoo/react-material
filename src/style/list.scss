@@ -8,6 +8,12 @@
         line-height: rem(48);
         height: rem(48);
     }
+    .list-item-avatar {
+        margin: rem(16) 0 rem(16) rem(16);
+    }
+    .list-item-avatar-after {
+        margin: rem(16) rem(16) rem(16) 0;
+    }
 }
 
 .list-item-title {

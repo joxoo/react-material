@@ -25,17 +25,16 @@ class AutoComplete extends React.Component {
 
     constructor(...args) {
         super(...args);
+
         this.state = { defaultValue: this.props.value };
+        this.handleOnInput = this.handleOnInput.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
 
     handleClear() {
         this.state = { defaultValue: '' };
         this.autoCompleteInput.value = '';
         this.autoCompleteInput.focus();
-    }
-
-    handleClose() {
-        this.props.onClose();
     }
 
     handleOnInput() {
@@ -51,28 +50,23 @@ class AutoComplete extends React.Component {
     }
 
     render() {
-        const {
-            placeholder,
-            data,
-            children,
-            ...others
-        } = this.props;
+        const { placeholder, data, children, onClose, ...others } = this.props;
 
         const autoComplete = () => {
             return (
                 <div className={ this.getClasses('auto-complete', others ) }>
                     <div className='auto-complete-search'>
                         <IconButton className='auto-complete-icon-left'
-                                    icon='arrow_back' onClick={ this.handleClose.bind(this) }/>
+                                    icon='arrow_back' onClick={ onClose }/>
                         <div className='auto-complete-input'>
                             <input type='search' ref={ (ref) => this.autoCompleteInput = ref }
                                    defaultValue={ this.state.defaultValue }
                                    placeholder={ placeholder }
                                    autoComplete='off'
-                                   onChange={ this.handleOnInput.bind(this) } autoFocus />
+                                   onChange={ this.handleOnInput } autoFocus />
                         </div>
                         <IconButton className='auto-complete-icon-right'
-                                    icon='close' onClick={ this.handleClear.bind(this) }/>
+                                    icon='close' onClick={ this.handleClear }/>
                     </div>
                     { data.length > 0 && this.renderData(data) }
                     { children && <div className='auto-complete-results'>{ children }</div> }

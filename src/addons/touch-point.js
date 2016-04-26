@@ -47,7 +47,7 @@ function _handleAnimation(event) {
     const nativeEvent = event.nativeEvent.targetTouches ? event.nativeEvent.targetTouches[0] : event.nativeEvent;
 
     this.addAnimatedTouchPoint(nativeEvent);
-    setTimeout(this.removeAnimatedTouchPoint.bind(this), 500);
+    setTimeout(this.removeAnimatedTouchPoint.bind(this), 250);
 }
 
 /**

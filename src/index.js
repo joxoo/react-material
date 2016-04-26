@@ -14,6 +14,8 @@ import CardHeader from './card/card-header';
 import Header from './header';
 import List from './list/index';
 import ListItem from './list/item';
+import Tabs from './tabs/index';
+import Tab from './tabs/tab';
 import Paper from './paper';
 import RichMedia from './rich-media';
 import SearchFilter from './text-fields/search-filter';
@@ -44,6 +46,8 @@ export {
     Header,
     List,
     ListItem,
+    Tab,
+    Tabs,
     InputText,
     SelectionControl,
     Paper,
