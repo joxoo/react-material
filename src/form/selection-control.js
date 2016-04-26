@@ -17,8 +17,8 @@ class SelectionControl extends React.Component {
             disabled: PropTypes.bool
         })).isRequired,
         labelBefore: PropTypes.bool,
-        onClick: PropTypes.func
-        title: PropType.string
+        onClick: PropTypes.func,
+        title: PropTypes.string
     };
 
     static defaultProps = {
@@ -40,7 +40,7 @@ class SelectionControl extends React.Component {
 
         return(
             <fieldset className={ this.getClasses('selection-control', classes) }>
-                { title && <Header title={ titles } level={ 4 } /> }
+                { title && <Header title={ title } level={ 4 } /> }
                 { controls.map((control, key) => {
                     const { disabled, label, value, count } = control;
                     return (
