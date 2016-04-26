@@ -38,7 +38,7 @@ class SelectionControl extends React.Component {
         });
 
         return(
-            <section className={ this.getClasses('selection-control', classes) }>
+            <fieldset className={ this.getClasses('selection-control', classes) }>
                 { controls.map((control, key) => {
                     const { disabled, label, value, count } = control;
                     return (
@@ -50,7 +50,7 @@ class SelectionControl extends React.Component {
                         </label>
                     );
                 }) }
-            </section>
+            </fieldset>
         );
     }
 }

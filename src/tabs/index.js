@@ -53,14 +53,12 @@ class Tabs extends React.Component {
     }
 
     renderTab(props) {
-        const selected = this.state.selected;
         const setReference = (tab) => {
             const node = ReactDOM.findDOMNode(tab);
             this.tabs[props.value] = node;
         };
 
         return (<Tab { ...props }
-            selected={ props.value === selected }
             onSelect={ this.handleOnSelect }
             key={ `tab-${props.value}` } ref={ setReference } />);
     }

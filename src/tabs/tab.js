@@ -16,7 +16,6 @@ class Tab extends React.Component {
             color: PropTypes.string,
             icon: PropTypes.string
         }),
-        selected: PropTypes.bool,
         onSelect: PropTypes.func.isRequired
     };
 
