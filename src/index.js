@@ -23,6 +23,7 @@ import SearchFilter from './text-fields/search-filter';
 import Snackbar from './snackbar';
 import ProgressLinear from './progress/linear';
 import InputText from './form/input-text';
+import InputControl from './form/input-control';
 import SelectionControl from './form/selection-control';
 import getClasses from './addons/get-classes';
 import hasTouchEvents from './addons/has-touch-events';
@@ -50,6 +51,7 @@ export {
     ListItem,
     Tab,
     Tabs,
+    InputControl,
     InputText,
     SelectionControl,
     Paper,

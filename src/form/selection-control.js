@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { getClasses } from '../addons';
 import Header from '../header';
+import InputControl from './input-control';
 
 @getClasses
 
@@ -16,41 +17,31 @@ class SelectionControl extends React.Component {
             count: PropTypes.number,
             disabled: PropTypes.bool
         })).isRequired,
-        labelBefore: PropTypes.bool,
-        onClick: PropTypes.func,
+        onChange: PropTypes.func,
         title: PropTypes.string
     };
 
     static defaultProps = {
-        labelBefore: false
+        checked: []
     };
 
-    handleOnClick( value ) {
-        if (this.props.onClick) {
-            this.props.onClick( value );
-        }
-    }
-
     render() {
-        const { type, checked, name, controls, title, ...others } = this.props;
-        const classes = Object.assign(others, {
-            checkbox: type === 'checkbox',
-            radio: type === 'radio'
-        });
+        const { type, name, controls, onChange, checked, title, ...others } = this.props;
 
         return(
-            <fieldset className={ this.getClasses('selection-control', classes) }>
+            <fieldset className={ this.getClasses('selection-control', others) }>
                 { title && <Header title={ title } level={ 4 } /> }
                 { controls.map((control, key) => {
                     const { disabled, label, value, count } = control;
+
                     return (
-                        <label className='selection-control-item' key={ `section-control-item-${key}` }>
-                            <input className='selection-control-field' { ... {type, name, disabled, value } }
-                                   defaultChecked={ checked.indexOf(value) !== -1 }
-                                   onClick={ this.handleOnClick.bind(this, value) }/>
-                            <span className='selection-control-label'>{ label }</span>
+                        <InputControl { ... {type, name, disabled, value, label } }
+                               checked={ checked.indexOf(value) !== -1 }
+                               onChange={ onChange }
+                               key={ `section-control-item-${key}` } >
+
                             { count && <span className='selection-control-count'>({ count })</span> }
-                        </label>
+                        </InputControl>
                     );
                 }) }
             </fieldset>

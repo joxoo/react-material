@@ -1,0 +1,53 @@
+.input-control{
+    display: block;
+    font-size: rem(16);
+    padding: rem(8) 0;
+
+    input:checked + .input-control-label:before {
+        animation-name: input-control;
+        animation-duration: 500ms;
+        content: 'check_box';
+        color: $colorInputActive;
+    }
+
+    input[type=checkbox]:checked + .input-control-label:before {
+        content: 'check_box';
+    }
+
+    input[type=radio]:checked + .input-control-label:before {
+        content: 'radio_button_checked';
+    }
+
+    input:disabled + .input-control-label:before,  input:disabled + .input-control-label {
+        color: $minBlack;
+    }
+}
+
+.input-control-field {
+    display: none;
+}
+
+.input-control-label {
+    display: inline-block;
+    line-height: rem(24);
+}
+
+.input-control-label:before {
+    @extend .font-icon;
+    display: inline-block;
+    margin-right: rem(16);
+    vertical-align: top;
+}
+
+.input-control-checkbox .input-control-label:before {
+    content: 'check_box_outline_blank';
+}
+
+.input-control-radio .input-control-label:before {
+    content: 'radio_button_unchecked';
+}
+
+@keyframes input-control {
+    from {transform: scale(0);}
+    to { transform: scale(1);}
+}

@@ -1,57 +1,6 @@
-.selection-control-item {
-    display: block;
-    font-size: rem(16);
-    padding: rem(8) 0;
-
-    input:checked + .selection-control-label:before {
-        animation-name: selection-control;
-        animation-duration: 500ms;
-        content: 'check_box';
-        color: $colorInputActive;
-    }
-
-    input[type=checkbox]:checked + .selection-control-label:before {
-        content: 'check_box';
-    }
-
-    input[type=radio]:checked + .selection-control-label:before {
-        content: 'radio_button_checked';
-    }
-
-    input:disabled + .selection-control-label:before,  input:disabled + .selection-control-label {
-        color: $minBlack;
-    }
-}
-
-.selection-control-field {
-    display: none;
-}
-
-.selection-control-label {
-    display: inline-block;
-    line-height: rem(24);
-}
 .selection-control-count {
     font-size: rem(12);
     display: inline-block;
     padding: 0 rem(8);
     color: $grey500;
-}
-.selection-control-label:before {
-    @extend .font-icon;
-    display: inline-block;
-    margin-right: rem(16);
-    vertical-align: top;
-}
-.selection-control-checkbox .selection-control-label:before {
-    content: 'check_box_outline_blank';
-}
-
-.selection-control-radio .selection-control-label:before {
-    content: 'radio_button_unchecked';
-}
-
-@keyframes selection-control {
-    from {transform: scale(0);}
-    to { transform: scale(1);}
 }
