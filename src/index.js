@@ -8,6 +8,7 @@ import FontIcon from './font-icon';
 import IconButton from './buttons/icon-button';
 import FlatButton from './buttons/flat-button';
 import FloatingActionButton from './buttons/floating-action-button';
+import MenuItem from './menu/item';
 import RaisedButton from './buttons/raised-button';
 import Card from './card';
 import CardHeader from './card/card-header';
@@ -40,6 +41,7 @@ export {
     IconButton,
     FlatButton,
     FloatingActionButton,
+    MenuItem,
     RaisedButton,
     Card,
     CardHeader,

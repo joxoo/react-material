@@ -8,7 +8,7 @@ class SelectionControl extends React.Component {
 
     static propTypes = {
         type: PropTypes.oneOf(['checkbox', 'radio']).isRequired,
-        checked: PropTypes.string,
+        checked: PropTypes.array,
         name: PropTypes.string.isRequired,
         controls: PropTypes.arrayOf(PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -46,7 +46,8 @@ class SelectionControl extends React.Component {
                     return (
                         <label className='selection-control-item' key={ `section-control-item-${key}` }>
                             <input className='selection-control-field' { ... {type, name, disabled, value } }
-                                   defaultChecked={ checked } onClick={ this.handleOnClick.bind(this, value) }/>
+                                   defaultChecked={ checked.indexOf(value) !== -1 }
+                                   onClick={ this.handleOnClick.bind(this, value) }/>
                             <span className='selection-control-label'>{ label }</span>
                             { count && <span className='selection-control-count'>({ count })</span> }
                         </label>

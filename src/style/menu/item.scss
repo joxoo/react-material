@@ -1,0 +1,28 @@
+.menu-item {
+    @include display-flex;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    height: rem(48);
+    .menu-item-icon {
+        padding: 0 rem(16);
+        line-height: rem(40);
+        height: rem(48);
+    }
+}
+
+.menu-item-label{
+    @include flex(1, 1, auto);
+    display: block;
+    font-weight: 400;
+    line-height: rem(16);
+    padding: rem(14) rem(16) rem(20) rem(16);
+    box-sizing: border-box;
+}
+
+.menu-item-tap {
+    @include button-tap();
+
+    &.tap-active {
+        border-radius: 0;
+    }
+}
