@@ -23,30 +23,49 @@ class InputControl extends React.Component {
     constructor(props, context) {
         super(props, context);
 
+        if (props.type === 'checkbox') {
+            this.state = {checked: props.checked};
+        }
         this.handleChange = this.handleChange.bind(this, props.value);
     }
 
-    shouldComponentUpdate(nextProps) {
-        return nextProps.disabled !== this.props.disabled;
+    componentWillReceiveProps(nextProps) {
+        if (this.props.type === 'checkbox') {
+            this.setState({ checked: nextProps.checked });
+        }
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.type === 'radio') {
+            return nextProps.disabled !== this.props.disabled;
+        }
+        return nextProps.disabled !== this.props.disabled || this.props.checked !== nextState.checked;
     }
 
     handleChange(value, event) {
         if (this.props.onChange) {
             this.props.onChange( value, event );
         }
+        if (this.props.type === 'checkbox') {
+            this.setState({checked: !this.state.checked});
+        }
     }
 
     render() {
         const { type, name, children, disabled, checked, value , label } = this.props;
+        const props = { type, name, disabled, onChange: this.handleChange };
+
+        if (type === 'radio') {
+            Object.assign(props, { defaultValue: value, defaultChecked: checked });
+        } else {
+            Object.assign(props, { value: value, checked: this.state.checked});
+        }
 
         return (
             <label className={ this.getClasses('input-control', { [type]: true }) }>
-                <input className='input-control-field' { ... {type, name, disabled } }
-                       defaultChecked={ checked }
-                       defaultValue={ value }
-                       onClick={ this.handleChange }/>
-                    <span className='input-control-label'>{ label }</span>
-                    { children }
+                <input className='input-control-field' { ...props }/>
+                <span className='input-control-label'>{ label }</span>
+                { children }
             </label>
         );
     }
