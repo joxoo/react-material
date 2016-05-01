@@ -2,6 +2,7 @@ import AppBar from './app-bar';
 import AutoComplete from './text-fields/auto-complete';
 import Avatar from './avatar';
 import BottomSheet from './bottom-sheet';
+import Chip from './chip';
 import DialogAlert from './dialog/alert';
 import DialogFullScreen from './dialog/full-screen';
 import FontIcon from './font-icon';
@@ -46,6 +47,7 @@ export {
     RaisedButton,
     Card,
     CardHeader,
+    Chip,
     Header,
     List,
     ListItem,
