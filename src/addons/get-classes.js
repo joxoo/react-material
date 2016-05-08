@@ -2,14 +2,19 @@ import _ from 'lodash';
 
 const gridClasses = {
     smPush: 'push-sm',
+    smdPush: 'push-smd',
     mdPush: 'push-md',
     lgPush: 'push-lg',
     xlgPush: 'push-xlg',
+    xxlgPush: 'push-xxlg',
+    xxxlgPush: 'push-xxxlg',
     sm: 'col-sm',
+    smd: 'col-smd',
     md: 'col-md',
     lg: 'col-lg',
     xlg: 'col-xlg',
-    xxlg: 'col-xxlg'
+    xxlg: 'col-xxlg',
+    xxxlg: 'col-xxxlg'
 };
 
 function getClasses(prefix, props) {

@@ -25,7 +25,7 @@ class Header extends React.Component {
         const ComponentTag = `h${level}`;
 
         return (
-            <div className={ this.getClasses('header', others) }>
+            <div {...others} className={ this.getClasses('header', others) }>
                 <div className='header-text'>
                     <ComponentTag className='header-title'>{ title }</ComponentTag>
                     { subtitle && <span className='header-subtitle'> { subtitle } </span> }

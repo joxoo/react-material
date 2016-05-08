@@ -1,5 +1,6 @@
 $breakpoint-xs: 480;
 $breakpoint-s: 600;
+$breakpoint-sm: 720;
 $breakpoint-m: 840;
 $breakpoint-l: 960;
 $breakpoint-xl: 1280;
@@ -8,26 +9,31 @@ $breakpoint-xxxl: 1600;
 
 $gutter-xs: 16;
 $gutter-s: 24;
+$gutter-sm: 24;
 $gutter-m: 24;
 $gutter-l: 24;
 $gutter-xl: 24;
+$gutter-xxl: 24;
+$gutter-xxxl: 24;
 
 $colums-xs: 4;
 $colums-s: 8;
+$colums-sm: 8;
 $colums-m: 12;
 $colums-l: 12;
 $colums-xl: 12;
 $colums-xxl: 12;
+$colums-xxxl: 12;
 
 .row {
     display: block;
     width: 100%;
 }
 
-@include breakpoint(null, $breakpoint-xs) {
+@include breakpoint(null, $breakpoint-s - 1) {
     @for $i from 1 through $colums-xs {
         $size: calculateColumnWidth($colums-xs, $i);
-        .col-sm-#{$i} {
+        .col-xs-#{$i} {
             display: inline-block;
             width: $size;
             padding: 0 rem(($gutter-xs / 2));
@@ -40,13 +46,45 @@ $colums-xxl: 12;
     }
 }
 
-@include breakpoint($breakpoint-xs, $breakpoint-l - 1) {
+@include breakpoint($breakpoint-s, $breakpoint-sm - 1) {
     @for $i from 1 through $colums-s {
         $size: calculateColumnWidth($colums-s, $i);
-        .col-md-#{$i} {
+        .col-sm-#{$i} {
             display: inline-block;
             width: $size;
             padding: 0 rem(($gutter-s / 2));
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .push-sm-#{$i} {
+            margin-left: $size;
+        }
+    }
+}
+
+@include breakpoint($breakpoint-sm, $breakpoint-m - 1) {
+    @for $i from 1 through $colums-sm {
+        $size: calculateColumnWidth($colums-sm, $i);
+        .col-smd-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-sm / 2));
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .push-smd-#{$i} {
+            margin-left: $size;
+        }
+    }
+}
+
+@include breakpoint($breakpoint-m, $breakpoint-l - 1) {
+    @for $i from 1 through $colums-m {
+        $size: calculateColumnWidth($colums-m, $i);
+        .col-md-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-m / 2));
             box-sizing: border-box;
             vertical-align: top;
         }
@@ -62,7 +100,7 @@ $colums-xxl: 12;
         .col-lg-#{$i} {
             display: inline-block;
             width: $size;
-            padding: 0 rem(($gutter-m / 2));
+            padding: 0 rem(($gutter-l / 2));
             box-sizing: border-box;
             vertical-align: top;
         }
@@ -72,13 +110,13 @@ $colums-xxl: 12;
     }
 }
 
-@include breakpoint($breakpoint-xl) {
+@include breakpoint($breakpoint-xl, $breakpoint-xxl - 1) {
     @for $i from 1 through $colums-xl {
         $size: calculateColumnWidth($colums-xl, $i);
         .col-xlg-#{$i} {
             display: inline-block;
             width: $size;
-            padding: 0 rem(($gutter-m / 2));
+            padding: 0 rem(($gutter-xl / 2));
             box-sizing: border-box;
             vertical-align: top;
         }
@@ -88,17 +126,33 @@ $colums-xxl: 12;
     }
 }
 
-@include breakpoint($breakpoint-xxl) {
+@include breakpoint($breakpoint-xxl, $breakpoint-xxxl - 1) {
     @for $i from 1 through $colums-xxl {
         $size: calculateColumnWidth($colums-xxl, $i);
         .col-xxlg-#{$i} {
             display: inline-block;
             width: $size;
-            padding: 0 rem(($gutter-m / 2));
+            padding: 0 rem(($gutter-xxl / 2));
             box-sizing: border-box;
             vertical-align: top;
         }
         .push-xxlg-#{$i} {
+            margin-left: $size;
+        }
+    }
+}
+
+@include breakpoint($breakpoint-xxxl) {
+    @for $i from 1 through $colums-xxxl {
+        $size: calculateColumnWidth($colums-xxxl, $i);
+        .col-xxxlg-#{$i} {
+            display: inline-block;
+            width: $size;
+            padding: 0 rem(($gutter-xxxl / 2));
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .push-xxxlg-#{$i} {
             margin-left: $size;
         }
     }
