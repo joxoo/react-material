@@ -12,7 +12,7 @@ class SelectionControl extends React.Component {
         checked: PropTypes.array,
         name: PropTypes.string.isRequired,
         controls: PropTypes.arrayOf(PropTypes.shape({
-            label: PropTypes.string.isRequired,
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
             value: PropTypes.string.isRequired,
             count: PropTypes.number,
             disabled: PropTypes.bool

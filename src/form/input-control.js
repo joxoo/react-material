@@ -35,13 +35,6 @@ class InputControl extends React.Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.type === 'radio') {
-            return nextProps.disabled !== this.props.disabled;
-        }
-        return nextProps.disabled !== this.props.disabled || this.props.checked !== nextState.checked;
-    }
-
     handleChange(value, event) {
         if (this.props.onChange) {
             this.props.onChange( value, event );
