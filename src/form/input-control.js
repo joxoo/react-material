@@ -9,7 +9,7 @@ class InputControl extends React.Component {
         type: PropTypes.oneOf(['checkbox', 'radio']).isRequired,
         checked: PropTypes.bool,
         name: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
         value: PropTypes.string.isRequired,
         disabled: PropTypes.bool,
         onChange: PropTypes.func
