@@ -40,9 +40,9 @@ class AutoComplete extends React.Component {
         this.autoCompleteInput.focus();
     }
 
-    handleOnInput() {
+    handleOnInput(event) {
         const defaultValue = this.autoCompleteInput.value;
-        this.props.onInput(defaultValue);
+        this.props.onInput(defaultValue, event);
         this.setState({ defaultValue });
     }
 
