@@ -32,7 +32,9 @@ class AutoComplete extends React.Component {
         this.handleClear = this.handleClear.bind(this);
     }
 
-    handleClear() {
+    handleClear(event) {
+        event.preventDefault();
+
         this.state = { defaultValue: '' };
         this.autoCompleteInput.value = '';
         this.autoCompleteInput.focus();
