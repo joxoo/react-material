@@ -12,6 +12,7 @@ class AutoComplete extends React.Component {
     static propTypes = {
         placeholder: PropTypes.string,
         value: PropTypes.string,
+        name: PropTypes.string,
         data: PropTypes.array,
         inset: PropTypes.bool,
         onInput: PropTypes.func.isRequired,
@@ -50,7 +51,7 @@ class AutoComplete extends React.Component {
     }
 
     render() {
-        const { placeholder, data, children, onClose, ...others } = this.props;
+        const { placeholder, data, children, name, onClose, ...others } = this.props;
 
         const autoComplete = () => {
             return (
@@ -62,6 +63,7 @@ class AutoComplete extends React.Component {
                             <input type='search' ref={ (ref) => this.autoCompleteInput = ref }
                                    defaultValue={ this.state.defaultValue }
                                    placeholder={ placeholder }
+                                   name={ name }
                                    autoComplete='off'
                                    onChange={ this.handleOnInput } autoFocus />
                         </div>
