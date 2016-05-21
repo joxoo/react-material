@@ -26,7 +26,7 @@ import ProgressLinear from './progress/linear';
 import InputText from './form/input-text';
 import InputControl from './form/input-control';
 import SelectionControl from './form/selection-control';
-import getClasses from './addons/get-classes';
+import getClasses, { getClassesStatic } from './addons/get-classes';
 import hasTouchEvents from './addons/has-touch-events';
 import touchPoint from './addons/touch-point';
 
@@ -39,6 +39,7 @@ export {
     DialogFullScreen,
     FontIcon,
     getClasses,
+    getClassesStatic,
     hasTouchEvents,
     IconButton,
     FlatButton,

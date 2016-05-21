@@ -17,7 +17,7 @@ const gridClasses = {
     xxxlg: 'col-xxxlg'
 };
 
-function getClasses(prefix, props) {
+export const getClassesStatic = (prefix, props) => {
     let classes = [];
     _.forIn(props, (value, key ) => {
 
@@ -45,7 +45,7 @@ function getClasses(prefix, props) {
     classes.reverse();
 
     return classes.join(' ');
-}
+};
 
 /**
  * Makes the given component "getClasses".
@@ -53,7 +53,8 @@ function getClasses(prefix, props) {
  * @param object component Component.
  */
 function getClassesDecorator(component) {
-    component.prototype.getClasses = getClasses;
+    component.prototype.getClasses = getClassesStatic;
 }
+
 
 export default getClassesDecorator;
