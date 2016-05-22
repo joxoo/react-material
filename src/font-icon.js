@@ -1,23 +1,14 @@
 import React, { PropTypes } from 'react';
-import { getClasses } from './addons';
+import { getClassesStatic } from './addons/get-classes';
 
-@getClasses
+const FontIcon = (props) => (
+    <span className={ getClassesStatic('font-icon', props) }>{ props.icon }</span>
+);
 
-class FontIcon extends  React.Component {
-
-    static propTypes = {
-        background: PropTypes.string,
-        color: PropTypes.string,
-        icon: PropTypes.string
-    };
-
-    render() {
-        const props = this.props;
-
-        return (
-            <span className={ this.getClasses('font-icon', this.props) }>{ props.icon }</span>
-        );
-    }
-}
+FontIcon.propTypes = {
+    background: PropTypes.string,
+    color: PropTypes.string,
+    icon: PropTypes.string
+};
 
 export default FontIcon;

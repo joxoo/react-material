@@ -1,30 +1,24 @@
 import React, { PropTypes } from 'react';
-import { getClasses } from './addons';
+import { getClassesStatic } from './addons/get-classes';
 
-@getClasses
+const BottomSheet = (props) => {
+    const { modal, ...others, children } = props;
+    return (
+        <div { ...others } className={ getClassesStatic('bottom-sheet', { ...others }) }>
+            { modal && <div className='bottom-sheet-layer' /> }
+            <div className='bottom-sheet-content'>{ children }</div>
+        </div>
+    );
+};
 
-class BottomSheet extends React.Component {
+BottomSheet.propTypes = {
+    modal: PropTypes.bool,
+    inset: PropTypes.bool
+};
 
-    static propTypes = {
-        modal: PropTypes.bool,
-        inset: PropTypes.bool
-    };
-
-    static defaultProps = {
-        modal: false,
-        inset: false
-    };
-
-    render() {
-        const { modal, ...others, children } = this.props;
-        return (
-            <div { ...others } className={ this.getClasses('bottom-sheet', { ...others }) }>
-                { modal && <div className='bottom-sheet-layer' /> }
-                <div className='bottom-sheet-content'>{ children }</div>
-            </div>
-        );
-    }
-
-}
+BottomSheet.defaultProps = {
+    modal: false,
+    inset: false
+};
 
 export default BottomSheet;
