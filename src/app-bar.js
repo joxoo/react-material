@@ -70,7 +70,7 @@ class AppBar extends React.Component {
                     </div>
                 );
             }
-            const child = <FontIcon className='app-bar-icon-button' icon={ (props.iconLeft) ? props.iconLeft: 'menu' } />;
+            const child = <FontIcon className='app-bar-icon-button' icon={ (props.iconLeft) ? props.iconLeft: '0xE5D2' } />;
             return (
                 <IconButton
                     className='app-bar-icon-left'

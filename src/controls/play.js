@@ -22,7 +22,7 @@ class ControlPlay extends React.Component {
         return (
             <IconButton onClick={ this.handleOnClick }
                         className={ this.getClasses('control-play', this.props) }
-                        icon='arrow_play' />
+                        icon='0xE037' />
         );
     }
 }

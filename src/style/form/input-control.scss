@@ -6,16 +6,16 @@
     input:checked + .input-control-label:before {
         animation-name: input-control;
         animation-duration: 500ms;
-        content: 'check_box';
+        content: '\E834';
         color: $colorInputActive;
     }
 
     input[type=checkbox]:checked + .input-control-label:before {
-        content: 'check_box';
+        content: '\E834';
     }
 
     input[type=radio]:checked + .input-control-label:before {
-        content: 'radio_button_checked';
+        content: '\E837';
     }
 
     input:disabled + .input-control-label:before,  input:disabled + .input-control-label {
@@ -40,11 +40,11 @@
 }
 
 .input-control-checkbox .input-control-label:before {
-    content: 'check_box_outline_blank';
+    content: '\E835';
 }
 
 .input-control-radio .input-control-label:before {
-    content: 'radio_button_unchecked';
+    content: '\E836';
 }
 
 @keyframes input-control {

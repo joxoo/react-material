@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { getClassesStatic } from './addons/get-classes';
 
 const FontIcon = (props) => (
-    <span className={ getClassesStatic('font-icon', props) }>{ props.icon }</span>
+    <i className={ getClassesStatic('font-icon', props) }>{ String.fromCharCode(props.icon) }</i>
 );
 
 FontIcon.propTypes = {

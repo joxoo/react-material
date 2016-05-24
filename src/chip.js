@@ -34,7 +34,7 @@ class Chip extends React.Component {
                 { icon && !avatar && <FontIcon {...icon} className='chip-icon' /> }
                 { avatar && <Avatar {...avatar} /> }
                 <span className='chip-label'>{ label }</span>
-                { onClose && <FontIcon onClick={ onClose } className='chip-close' icon='cancel' /> }
+                { onClose && <FontIcon onClick={ onClose } className='chip-close' icon='0xE5C9' /> }
             </div>
         );
     }
