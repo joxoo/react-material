@@ -26,7 +26,7 @@ class DialogFullScreen extends React.Component {
         } = this.props;
 
         const elementRight =  confirmation ? <FlatButton {...confirmation } /> : null;
-        const elementLeft = <IconButton icon={ confirmation ? 'clear' : 'arrow_back' } onClick={ cancel }/>;
+        const elementLeft = <IconButton icon={ confirmation ? '0xE14C' : '0xE5C4' } onClick={ cancel }/>;
 
         return (
             <div className='dialog-wrapper'>
