@@ -60,7 +60,7 @@ class AutoComplete extends React.Component {
                 <div className={ this.getClasses('auto-complete', others ) }>
                     <div className='auto-complete-search'>
                         <IconButton className='auto-complete-icon-left'
-                                    icon='0xE5C$' onClick={ onClose }/>
+                                    icon='0xE5C4' onClick={ onClose }/>
                         <div className='auto-complete-input'>
                             <input type='search' ref={ (ref) => this.autoCompleteInput = ref }
                                    defaultValue={ this.state.defaultValue }
