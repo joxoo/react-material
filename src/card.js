@@ -1,17 +1,10 @@
 import React from 'react';
-import { getClasses } from  './addons';
+import { getClassesStatic } from  './addons/get-classes';
 
-@getClasses
-
-class Card extends React.Component {
-
-    render() {
-        return (
-            <div className={ this.getClasses('card', this.props) }>
-                { this.props.children }
-            </div>
-        );
-    }
-}
+const Card = (props) => (
+    <div className={ getClassesStatic('card', props) }>
+        { props.children }
+    </div>
+);
 
 export default Card;
