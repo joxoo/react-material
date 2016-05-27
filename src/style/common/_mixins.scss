@@ -75,6 +75,7 @@
     -webkit-flex: $grow  $shrink $basic;
     -ms-flex: $grow  $shrink $basic;
     flex: $grow  $shrink $basic;
+    min-width: $basic;
 }
 
 @mixin breakpoint($min-width, $max-width: false) {
