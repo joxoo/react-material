@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "lodash": "3.10.1",
-    "react": "^15.0.0",
-    "react-addons-pure-render-mixin": "^15.0.0",
-    "react-addons-shallow-compare": "^15.0.0",
-    "react-dom": "^15.0.0",
+    "react": "15.1.0",
+    "react-addons-pure-render-mixin": "15.1.0",
+    "react-addons-shallow-compare": "15.1.0",
+    "react-dom": "15.1.0",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
