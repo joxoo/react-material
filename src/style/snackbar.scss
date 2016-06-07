@@ -1,10 +1,8 @@
 .snackbar {
     position: fixed;
     bottom: 0;
-    z-index: 999;
     width: 100%;
     text-align: center;
-    min-height: rem(48);
 }
 
 .snackbar-content {
@@ -46,10 +44,10 @@
 
 @keyframes snackbar-in {
     from { transform: translateY(100%) }
-    to { transform: translateY(0) }
+    to { transform: translateY(0); }
 }
 
 @keyframes snackbar-out {
     from { transform: translateY(0) }
-    to { transform: translateY(100%) }
+    to { transform: translateY(100%);}
 }
