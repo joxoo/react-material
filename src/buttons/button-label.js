@@ -1,19 +1,12 @@
 import React, { PropTypes } from 'react';
-import {getClasses} from '../addons';
+import {getClassesStatic} from '../addons/get-classes';
 
-@getClasses
+const FlatButtonLabel = (props) => (
+    <span className={ getClassesStatic('flat-button-label', props) }>{ props.label }</span>
+);
 
-class FlatButtonLabel extends React.Component {
-
-    static propTypes = {
-        label: PropTypes.string
-    };
-
-    render() {
-        return (
-            <span className={ this.getClasses('flat-button-label', this.props) }>{ this.props.label }</span>
-        );
-    }
-}
+FlatButtonLabel.propTypes = {
+    label: PropTypes.string
+};
 
 export default FlatButtonLabel;

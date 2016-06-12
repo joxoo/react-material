@@ -1,29 +1,20 @@
 import React, { PropTypes } from 'react';
-import { getClasses } from  './addons';
+import { getClassesStatic } from  './addons/get-classes';
 
-@getClasses
+const Snackbar = (props) => (
+    <div {...props} className={ getClassesStatic('snackbar', props) }>
+        <div className='snackbar-content'>
+            <span className='snackbar-message'>{ props.message }</span>
+            { props.actionHandler && <span className='snackbar-action' onClick={ props.actionHandler } >
+                { props.actionLabel }</span> }
+        </div>
+    </div>
+);
 
-class Snackbar extends React.Component {
-
-    static propTypes = {
-        message: PropTypes.string,
-        actionLabel: PropTypes.string,
-        actionHandler: PropTypes.func
-    };
-
-    render() {
-        const { message, actionLabel, actionHandler, ...others } = this.props;
-
-        return (
-            <div {...others} className={ this.getClasses('snackbar', others) }>
-                <div className='snackbar-content'>
-                    <span className='snackbar-message'>{ message }</span>
-                    { actionHandler && <span className='snackbar-action' onClick={ actionHandler } >
-                        { actionLabel }</span> }
-                </div>
-            </div>
-        );
-    }
-}
+Snackbar.propTypes = {
+    message: PropTypes.string,
+    actionLabel: PropTypes.string,
+    actionHandler: PropTypes.func
+};
 
 export default Snackbar;

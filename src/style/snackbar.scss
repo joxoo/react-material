@@ -22,7 +22,7 @@
 }
 
 .snackbar-message {
-    @include flex(1, 1, 100%);
+    @include flex(1, 1, auto);
     color: $fullWhite;
     align-self: stretch;
     user-select: none;
@@ -32,7 +32,7 @@
     @include flex(1, 1, auto);
     color: $textColorSecondary;
     margin-left: rem(24);
-    align-self: center;
+    align-self: flex-end;
     text-transform: uppercase;
     user-select: none;
     cursor: pointer;

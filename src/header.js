@@ -1,38 +1,27 @@
 import React, { PropTypes } from 'react';
-import { getClasses } from  './addons';
+import { getClassesStatic } from  './addons/get-classes';
 
-@getClasses
+const Header = (props) => {
+    const ComponentTag = `h${props.level}`;
 
-class Header extends React.Component {
-
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string,
-        level: PropTypes.number
-    };
-
-    static defaultProps = {
-        level: 1
-    };
-
-    render() {
-        const {
-            title,
-            subtitle,
-            level,
-            ...others
-        } = this.props;
-        const ComponentTag = `h${level}`;
-
-        return (
-            <div {...others} className={ this.getClasses('header', others) }>
-                <div className='header-text'>
-                    <ComponentTag className='header-title'>{ title }</ComponentTag>
-                    { subtitle && <span className='header-subtitle'> { subtitle } </span> }
-                </div>
+    return (
+        <div {...props} className={ getClassesStatic('header', props) }>
+            <div className='header-text'>
+                <ComponentTag className='header-title'>{ props.title }</ComponentTag>
+                { props.subtitle && <span className='header-subtitle'> { props.subtitle } </span> }
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    level: PropTypes.number
+};
+
+Header.defaultProps = {
+    level: 1
+};
 
 export default Header;
