@@ -57,7 +57,7 @@ class InputControl extends React.Component {
         return (
             <label className={ this.getClasses('input-control', { [type]: true }) }>
                 <input className='input-control-field' { ...props }/>
-                <span className='input-control-label'>{ label }</span>
+                <span className='input-control-label'><span>{ label }</span></span>
                 { children }
             </label>
         );

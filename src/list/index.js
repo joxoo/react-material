@@ -1,43 +1,31 @@
 import React, { PropTypes } from 'react';
-import { getClasses } from  '../addons';
+import { getClassesStatic } from  '../addons/get-classes';
 import ListItem from './item';
 
-@getClasses
+const hasItemsIcons = (items) => items.findIndex((item) => (Boolean(item.icon))) !== -1;
 
-class List extends React.Component {
+const List = (props) => {
+    const { items, children, ...others } = props;
+    const hasIcons = hasItemsIcons(items);
 
-    static propTypes = {
-        items: PropTypes.arrayOf(PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            icon: PropTypes.string
-        }))
-    };
+    return (
+        <ul { ...others } className={ getClassesStatic('list', others) } >
+            { items.map((item, key) => (<ListItem key={ key } hasIcon={ key !== 0 && hasIcons } { ...item } />)) }
+            { children }
+        </ul>
+    );
+};
 
-    static defaultProps = {
-        items: []
-    };
+List.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        icon: PropTypes.string
+    }))
+};
 
-    hasItemsIcons(items) {
-        return items.findIndex((item) => (Boolean(item.icon))) !== -1;
-    }
-
-    render() {
-        const {
-            items,
-            children,
-            ...others
-        } = this.props;
-
-        const hasIcons = this.hasItemsIcons(items);
-
-        return (
-            <ul className={ this.getClasses('list', others) } { ...others }>
-                { items.map((item, key) => (<ListItem key={ key } hasIcon={ key !== 0 && hasIcons } { ...item } />)) }
-                { children }
-            </ul>
-        );
-    }
-}
+List.defaultProps = {
+    items: []
+};
 
 export { ListItem };
 export default List;

@@ -1,0 +1,38 @@
+.stepper {
+    .stepper-step .stepper-step-content > :first-child, .stepper-step .stepper-step-actions {
+        display: none;
+    }
+
+    .stepper-step .stepper-step-content {
+        padding: rem(8);
+        margin-left: rem(36);
+        border-left: solid 1px $faintBlack;
+    }
+    .stepper-step .stepper-step-label {
+        padding: rem(24) rem(16);
+        cursor: pointer;
+
+        .avatar {
+            display: inline-block;
+            background: $backgroundColorPrimary;
+            border-radius: 50%;
+            text-align: center;
+            height: rem(24);
+            width: rem(24);
+            margin: 0 rem(8);
+        }
+        .avatar-letter, .avatar-icon {
+            height: rem(24);
+            width: rem(24);
+            font-size: rem(16);
+            color: $textColorPimary;
+            line-height: rem(24);
+        }
+        .stepper-step-title {
+            line-height: rem(24);
+        }
+    }
+    .stepper-step-open .stepper-step-content > :first-child, .stepper-step-open .stepper-step-actions {
+        display: block;
+    }
+}

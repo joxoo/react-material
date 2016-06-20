@@ -22,6 +22,7 @@ import Paper from './paper';
 import RichMedia from './rich-media';
 import SearchFilter from './text-fields/search-filter';
 import Snackbar from './snackbar';
+import Stepper from './stepper';
 import ProgressLinear from './progress/linear';
 import InputText from './form/input-text';
 import InputControl from './form/input-control';
@@ -61,6 +62,7 @@ export {
     RichMedia,
     SearchFilter,
     Snackbar,
+    Stepper,
     ProgressLinear,
     touchPoint
 };

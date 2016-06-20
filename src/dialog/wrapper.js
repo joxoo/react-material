@@ -1,9 +1,5 @@
 import React from 'react';
 
-class DialogWrapper extends React.Component {
-    render() {
-        return (<div className='dialog-wrapper'>{ this.props.children }</div>);
-    }
-}
+const DialogWrapper = (props) => (<div className='dialog-wrapper'>{ props.children }</div>);
 
 export default DialogWrapper;

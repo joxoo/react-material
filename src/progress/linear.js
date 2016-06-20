@@ -1,27 +1,18 @@
 import React, { PropTypes } from 'react';
-import { getClasses } from  '../addons';
+import { getClassesStatic } from  '../addons/get-classes';
 
-@getClasses
+const ProgressLinear = (props) => (
+    <div className={ getClassesStatic('progress-linear', { [props.type]: true }) }>
+        <div className='progress-bar' />
+    </div>
+);
 
-class ProgressLinear extends React.Component {
+ProgressLinear.propTypes = {
+    type: PropTypes.oneOf(['determinate', 'indeterminate', 'buffer', 'determinate-indeterminate'])
+};
 
-    static propTypes = {
-        type: PropTypes.oneOf(['determinate', 'indeterminate', 'buffer', 'determinate-indeterminate'])
-    };
-
-    static defaultProps = {
-        type: 'indeterminate'
-    };
-
-    render() {
-        const { type } = this.props;
-
-        return (
-            <div className={ this.getClasses('progress-linear', { [type]: true }) }>
-                <div className='progress-bar' />
-            </div>
-        );
-    }
-}
+ProgressLinear.defaultProps = {
+    type: 'indeterminate'
+};
 
 export default ProgressLinear;
