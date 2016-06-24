@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import AppBar from '../app-bar';
 import IconButton from '../buttons/icon-button';
 import FlatButton from '../buttons/flat-button';
+import { getClassesStatic } from '../addons/get-classes';
 
 const DialogFullScreen = (props) => {
     const elementRight =  props.confirmation ? <FlatButton {...props.confirmation } /> : null;
@@ -9,7 +10,7 @@ const DialogFullScreen = (props) => {
 
     return (
         <div className='dialog-wrapper'>
-            <div className='dialog-fullscreen'>
+            <div className={ getClassesStatic('dialog-fullscreen', props) }>
                <AppBar title={ props.title } elementLeft={ elementLeft } elementRight={ elementRight } />
                 <div className='dialog-fullscreen-content'>{ props.children }</div>
             </div>
