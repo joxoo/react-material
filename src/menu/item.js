@@ -34,13 +34,13 @@ class MenuItem extends React.Component {
     }
 
     render() {
-        const { label, icon, ...others } = this.props;
+        const { label, value, icon, ...others } = this.props;
         const fontIcon = typeof icon === 'string' ? { icon } : icon;
 
         return (
             <div { ...others } className={ this.getClasses('menu-item', others) }
                onClick={ this.onClickHandler } ref={ this.setTouchReference }>
-                <strong className='menu-item-label'>{ label }</strong>
+                <strong className='menu-item-label' datatype={ value }>{ label }</strong>
                 { fontIcon && <FontIcon className='menu-item-icon' {...fontIcon} /> }
                 <span className='menu-item-tap' ref={ this.setTouchTapReference } />
             </div>
