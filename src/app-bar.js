@@ -18,13 +18,15 @@ class AppBar extends React.Component {
         elementLeft: PropTypes.element,
         elementRight: PropTypes.element,
         title: React.PropTypes.node,
-        depth: React.PropTypes.number
+        depth: React.PropTypes.number,
+        level: React.PropTypes.number
     };
 
     static defaultProps = {
         showMenuIconButton: true,
         title: '',
-        depth: 1
+        depth: 1,
+        level: 1
     };
 
     constructor(...args) {
@@ -130,9 +132,11 @@ class AppBar extends React.Component {
         }
     }
 
-    renderTitle( title ) {
+    renderTitle( title, level ) {
         if ( typeof title === 'string' || title instanceof String ) {
-            return (  <h1 className='app-bar-title app-bar-main'>{ title }</h1>  );
+            const Component = `h${level}`;
+            
+            return (  <Component className='app-bar-title app-bar-main'>{ title }</Component>  );
         }
         return ( <div className='app-bar-main'>{ title }</div> );
     }
@@ -143,7 +147,7 @@ class AppBar extends React.Component {
             <Paper rounded={ false } className={ this.getClasses('app-bar', { className: props.className }) }
                    depth={ props.depth }>
                 { this.renderMenuElementLeft( props ) }
-                { this.renderTitle(props.title) }
+                { this.renderTitle(props.title, props.level) }
                 { this.renderMenuElementRight( props ) }
                 { props.children }
             </Paper>
