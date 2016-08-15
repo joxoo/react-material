@@ -75,7 +75,7 @@ class ListItem extends React.Component {
                 </div>
                 { !iconBefore && fontIcon && <FontIcon className='list-item-icon' {...fontIcon} /> }
                 { !avatarBefore && avatar && <Avatar className='list-item-avatar-after' {...avatar} /> }
-                { others.touchable && <span className='list-item-tap' ref={ this.setTouchTapReference } /> }
+                { touchable && <span className='list-item-tap' ref={ this.setTouchTapReference } /> }
             </li>
         );
     }
