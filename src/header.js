@@ -2,13 +2,14 @@ import React, { PropTypes } from 'react';
 import { getClassesStatic } from  './addons/get-classes';
 
 const Header = (props) => {
-    const ComponentTag = `h${props.level}`;
+    const {level, title, subtitle, ...rest} = props;
+    const ComponentTag = `h${level}`;
 
     return (
-        <div {...props} className={ getClassesStatic('header', props) }>
+        <div {...rest} className={ getClassesStatic('header', rest) }>
             <div className='header-text'>
-                <ComponentTag className='header-title'>{ props.title }</ComponentTag>
-                { props.subtitle && <span className='header-subtitle'> { props.subtitle } </span> }
+                <ComponentTag className='header-title'>{ title }</ComponentTag>
+                { subtitle && <span className='header-subtitle'> { subtitle } </span> }
             </div>
         </div>
     );

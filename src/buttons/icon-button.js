@@ -16,10 +16,6 @@ class IconButton extends React.Component {
         iconElement: PropTypes.element
     };
 
-    static defaultProps = {
-        tooltipPosition: 'bottom-center'
-    };
-
     constructor(...args) {
         super(...args);
         this._handleAnmation = this._handleAnmation.bind(this);

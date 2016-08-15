@@ -20,6 +20,7 @@ class FlatButton extends React.Component {
         hoverColor: PropTypes.string,
         label: validateLabel,
         labelClassName: PropTypes.string,
+        className: PropTypes.string,
         labelPosition: PropTypes.oneOf(['before', 'after']),
         primary:    PropTypes.bool,
         secondary: PropTypes.bool
@@ -48,6 +49,9 @@ class FlatButton extends React.Component {
             label,
             labelClassName,
             labelPosition,
+            secondary,
+            primary,
+            className,
             ...others
             } = this.props;
 
@@ -57,7 +61,7 @@ class FlatButton extends React.Component {
             <button { ...others } onTouchStart={ this._handleAnmation }
                     onMouseDown={ this._handleAnmation }
                     disabled={ disabled }
-                    className={ this.getClasses('flat-button', this.props) }
+                    className={ this.getClasses('flat-button', { secondary, primary, className }) }
                     ref={ this.setTouchReference }>
                 <span className='flat-button-tap' ref={ this.setTouchTapReference }/>
                 { labelPosition === 'before'?

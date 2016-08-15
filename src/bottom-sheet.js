@@ -12,13 +12,11 @@ const BottomSheet = (props) => {
 };
 
 BottomSheet.propTypes = {
-    modal: PropTypes.bool,
-    inset: PropTypes.bool
+    modal: PropTypes.bool
 };
 
 BottomSheet.defaultProps = {
-    modal: false,
-    inset: false
+    modal: false
 };
 
 export default BottomSheet;

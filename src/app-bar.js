@@ -112,7 +112,6 @@ class AppBar extends React.Component {
             return (
                 <IconButton
                     className='app-bar-icon-right'
-                    iconClassName='app-bar-icon-button'
                     icon={ iconRight }
                     onClick={ this._onRightIconButtonClick } />
             );

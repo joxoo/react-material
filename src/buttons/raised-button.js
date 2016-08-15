@@ -20,6 +20,7 @@ class RaisedButton extends React.Component {
         hoverColor: PropTypes.string,
         label: validateLabel,
         labelClassName: PropTypes.string,
+        className: PropTypes.string,
         labelPosition: PropTypes.oneOf(['before', 'after']),
         primary:    PropTypes.bool,
         secondary: PropTypes.bool
@@ -47,6 +48,9 @@ class RaisedButton extends React.Component {
             disabled,
             label,
             labelClassName,
+            className,
+            secondary,
+            primary,
             labelPosition,
             ...others
             } = this.props;
@@ -58,7 +62,7 @@ class RaisedButton extends React.Component {
             <button { ...others } onTouchStart={ this._handleAnmation }
                     onMouseDown={ this._handleAnmation }
                     disabled={ disabled }
-                    className={ this.getClasses('raised-button', this.props) }
+                    className={ this.getClasses('raised-button', { className, secondary, primary }) }
                     ref={ this.setTouchReference } >
                 <span className='raised-button-tap'  ref={ this.setTouchTapReference }/>
                 { childs }

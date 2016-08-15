@@ -46,13 +46,13 @@ class ListItem extends React.Component {
     }
 
     render() {
-        const { title, icon, subtitle, children, avatar, iconAfter, avatarAfter, ...others } = this.props;
+        const { title, icon, subtitle, children, avatar, iconAfter, avatarAfter, touchable, ...others } = this.props;
         const fontIcon = typeof icon === 'string' ? { icon } : icon;
         const handleOnClick = others.onClick;
         const iconBefore = fontIcon && !iconAfter;
         const avatarBefore = avatar && !avatarAfter && iconBefore;
-        
-        if (others.touchable) {
+
+        if (touchable) {
             Object.assign(others, {
                 ref: this.setTouchReference,
                 onClick: (...args) => {
