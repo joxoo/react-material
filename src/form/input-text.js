@@ -49,7 +49,7 @@ class InputText extends React.Component {
         }
 
         if (this.props.onChange && !inValid) {
-            this.props.onChange(value);
+            this.props.onChange(value, nativeEventType);
         }
 
         this.setState({
