@@ -8,7 +8,7 @@ class InputText extends React.Component {
 
     static propTypes = {
         label: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(['text', 'url', 'email', 'tel', 'password']),
+        type: PropTypes.oneOf(['text', 'url', 'email', 'tel', 'password', 'number']),
         value: PropTypes.string,
         name: PropTypes.string.isRequired,
         disabled: PropTypes.bool,
@@ -16,7 +16,8 @@ class InputText extends React.Component {
         placeholder: PropTypes.string,
         floating: PropTypes.bool,
         validate: PropTypes.func,
-        errorText: PropTypes.string
+        errorText: PropTypes.string,
+        onChange: PropTypes.func
     };
 
     static defaultProps = {
@@ -44,6 +45,10 @@ class InputText extends React.Component {
 
         if (this.props.validate && mustValidate && nativeEventType !== 'input') {
             inValid = !this.props.validate(value);
+        }
+
+        if (this.props.onChange && !inValid) {
+            this.props.onChange(value);
         }
 
         this.setState({
