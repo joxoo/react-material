@@ -10,6 +10,7 @@ class InputText extends React.Component {
         label: PropTypes.string.isRequired,
         type: PropTypes.oneOf(['text', 'url', 'email', 'tel', 'password', 'number']),
         value: PropTypes.string,
+        list: PropTypes.string,
         name: PropTypes.string.isRequired,
         disabled: PropTypes.bool,
         required: PropTypes.bool,
@@ -59,12 +60,12 @@ class InputText extends React.Component {
     }
 
     render() {
-        const { label, type, value, name, disabled, placeholder, errorText, required, ...others } = this.props;
+        const { label, type, value, name, disabled, placeholder, errorText, required, list, ...others } = this.props;
 
         return(
             <label className={ this.getClasses('input-text', Object.assign(others, this.state)) }>
                 <span className='input-text-label'>{ `${label}${required ? ' (*)' : ''}` }</span>
-                <input className='input-text-field' {... {type, value, name, disabled, placeholder, required }}
+                <input className='input-text-field' {... {type, value, name, disabled, placeholder, required, list }}
                        onFocus={ this.onFocus } onChange={ this.onChange } onBlur={ this.onChange } />
                 { this.state.invalid ? <span className='input-text-error'>{ errorText }</span> : null }
             </label>
