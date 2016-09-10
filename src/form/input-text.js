@@ -27,11 +27,17 @@ class InputText extends React.Component {
         required: false
     };
 
-    constructor(...args) {
-        super(...args);
-        this.state = { focused: false };
+    constructor(props, context) {
+        super(props, context);
+        this.state = { focused: false, value: props.value || ''};
         this.onChange = this.onChange.bind(this);
         this.onFocus = this.onFocus.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.value !== undefined) {
+            this.setState({ value: nextProps.value });
+        }
     }
 
     onFocus() {
@@ -49,21 +55,23 @@ class InputText extends React.Component {
         }
 
         if (this.props.onChange && !inValid) {
-            this.props.onChange(value, nativeEventType);
+            this.props.onChange(value);
         }
 
         this.setState({
             focused: false,
             typed: nativeEventType === 'input' || Boolean(value.length),
-            invalid: inValid
+            invalid: inValid,
+            value
         });
     }
 
     render() {
-        const { label, type, value, name, disabled, placeholder, errorText, required, list, ...others } = this.props;
+        const { label, type, name, disabled, placeholder, errorText, required, list, ...others } = this.props;
+        const { value, focused, typed, invalid } = this.state;
 
         return(
-            <label className={ this.getClasses('input-text', Object.assign(others, this.state)) }>
+            <label className={ this.getClasses('input-text', Object.assign(others, { focused, typed, invalid })) }>
                 <span className='input-text-label'>{ `${label}${required ? ' (*)' : ''}` }</span>
                 <input className='input-text-field' {... {type, value, name, disabled, placeholder, required, list }}
                        onFocus={ this.onFocus } onChange={ this.onChange } onBlur={ this.onChange } />
