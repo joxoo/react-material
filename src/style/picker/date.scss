@@ -1,0 +1,134 @@
+.picker-date {
+  background: $backgroundColorPrimary;
+  margin: rem(16);
+  .dialog-alert-content {
+    padding: 0;
+  }
+  .picker-date-header {
+    padding: rem(25);
+    .header-title, .header-subtitle {
+      color: $textColorPimary;
+    }
+  }
+  .picker-date-body {
+    background: $backgroundColorSecondary;
+    padding: 0 rem(25);
+  }
+  .dialog-alert-actions {
+    background: $backgroundColorSecondary;
+  }
+
+  .dialog-alert-content-box {
+    @media screen and (orientation:portrait) {
+      max-height: inherit;
+    }
+    @media screen and (orientation:landscape) {
+      max-height: 44vw;
+      .picker-date-header {
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+      }
+      .picker-date-body {
+        display: inline-block;
+        width: 70%;
+      }
+      .dialog-alert-actions {
+        margin-left: 30%;
+      }
+    }
+    @include breakpoint($breakpoint-sm) {
+      max-height: 44vw;
+      .picker-date-header {
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+      }
+      .picker-date-body {
+        display: inline-block;
+        width: 70%;
+      }
+      .dialog-alert-actions {
+        margin-left: 30%;
+      }
+    }
+  }
+  @include breakpoint($breakpoint-sm) {
+    margin: auto;
+    width: rem(640);
+    height: rem(368);
+    .dialog-alert-actions {
+      margin-left: 30%;
+    }
+    .picker-date-body {
+      height: rem(315);
+    }
+  }
+}
+
+.picker-date-weekdays {
+  @include display-flex;
+  span {
+    @include flex(1, 1, auto);
+    text-align: center;
+  }
+}
+
+.picker-date-navigation, .picker-date-days {
+  @include display-flex(row, wrap);
+  span {
+    box-sizing: border-box;
+    @include flex(1, 1, calc(100% / 7));
+    text-align: center;
+    width: calc(100% / 7);
+    line-height: rem(40);
+    align-self: center;
+  }
+}
+
+.picker-date-days {
+  span:nth-child(7):after{
+    content: '.';
+    height: 0;
+    display: block;
+    min-width: 100%;
+  }
+}
+
+.picker-date-day {
+  cursor: pointer;
+  position: relative;
+}
+
+.picker-date-day:hover:after {
+  content: attr(data-key);
+  position: absolute;
+  left: calc(50% - 20px);
+  top: 0;
+  display: block;
+  height: rem(40);
+  width: rem(40);
+  background: $faintBlack;
+  border-radius: 50%;
+}
+
+.picker-date-day-selected {
+  position: relative;
+}
+
+.picker-date-day-selected:after {
+  content: attr(data-key);
+  color: $textColorPimary;
+  position: absolute;
+  left: calc(50% - 20px);
+  top: 0;
+  display: block;
+  height: rem(40);
+  width: rem(40);
+  background: $textColorSecondary;
+  border-radius: 50%;
+}
+
+.picker-date-month {
+  line-height: rem(56);
+}

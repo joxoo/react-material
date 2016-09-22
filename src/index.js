@@ -19,6 +19,7 @@ import ListItem from './list/item';
 import Tabs from './tabs/index';
 import Tab from './tabs/tab';
 import Paper from './paper';
+import PickerDate from './picker/date';
 import RichMedia from './rich-media';
 import SearchFilter from './text-fields/search-filter';
 import Snackbar from './snackbar';
@@ -59,6 +60,7 @@ export {
     InputText,
     SelectionControl,
     Paper,
+    PickerDate,
     RichMedia,
     SearchFilter,
     Snackbar,
