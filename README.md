@@ -1,12 +1,15 @@
 ## React Material Design
 
+### Install
+npm install jss-react-material
+
 ### Dependencies
 react >= 15.3.0
 
 ### How To Use
 ##### create theme.scss file with your favorite colors
 ```scss
-@import '~react-material/src/style/common/colors';
+@import '~jss-react-material/src/style/common/colors';
 $backgroundColor: #fff;
 $backgroundColorPrimary: $brown600;
 $backgroundColorSecondary: $green500;
@@ -23,7 +26,7 @@ $borderColor: rgba(0, 0, 0, 0.16);
 ##### import theme.scss and base scss file from react-material in the main scss file
 ```scss
 @import './theme';
-@import '~react-material/index';
+@import '~jss-react-material/index';
 
 body {
     margin:0;
