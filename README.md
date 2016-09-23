@@ -1,1 +1,73 @@
-## Material Rabbit
+## React Material Design
+
+### Dependencies
+react >= 15.3.0
+
+### How To Use
+##### create theme.scss file with your favorite colors
+```scss
+@import '~react-material/src/style/common/colors';
+$backgroundColor: #fff;
+$backgroundColorPrimary: $brown600;
+$backgroundColorSecondary: $green500;
+$backgroundColorFloating: $brown900;
+$textColor: $darkBlack;
+$textColorPimary: $fullWhite;
+$textColorSecondary: $green500;
+$colorInputActive: $brown600;
+$colorTabSelected: $fullWhite;
+$windowBackground: $grey50;
+$backgroundOpacity: rgba(0, 0, 0, 0.08);
+$borderColor: rgba(0, 0, 0, 0.16);
+```
+##### import theme.scss and base scss file from react-material in the main scss file
+```scss
+@import './theme';
+@import '~react-material/index';
+
+body {
+    margin:0;
+    background: $windowBackground;
+    font-family: 'Roboto', sans-serif;
+}
+```
+### Components
+- AppBar
+- AutoComplete
+- Avatar
+- BottomSheet
+- DialogAlert
+- DialogFullScreen
+- FontIcon
+- IconButton
+- FlatButton
+- FloatingActionButton
+- MenuItem
+- RaisedButton
+- Card,
+- CardHeader
+- Chip
+- Header
+- List
+- ListItem
+- Tab
+- Tabs
+- InputControl
+- InputText
+- SelectionControl
+- Paper
+- PickerDate
+- RichMedia,
+- SearchFilter
+- Snackbar
+- Stepper
+- ProgressLinear
+
+
+## Contributions
+
+Yes please! See the [contributing guidelines][contributing] for details.
+
+### Changelog
+
+- V0.1.0 Add basic Material Design Components

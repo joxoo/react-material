@@ -1,14 +1,29 @@
 {
   "name": "react-material",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Google Material Components for React",
   "main": "lib/index.js",
-  "private": true,
   "config": {
     "MOCHA_OPTS": "test/unit/ --opts test/unit/mocha.opts",
     "ISPARTA_OPTS": "--report html",
     "COVERAGE_OPTS": "--statements 100 --functions 100 --branches 100 --lines 100"
   },
+  "keywords": [
+    "react",
+    "react-material",
+    "react-component",
+    "material design",
+    "material ui",
+    "google material design"
+  ],
+  "files": [
+    "README.md",
+    "lib",
+    "src/style",
+    "index.scss"
+  ],
+  "license": "MIT",
+  "author": "Joxoo <info@joxoo.com>",
   "dependencies": {
     "lodash": "3.10.1",
     "moment": "^2.15.1",
@@ -17,6 +32,10 @@
     "react-addons-shallow-compare": "15.3.0",
     "react-dom": "15.3.0",
     "valid-url": "^1.0.9"
+  },
+  "peerDependencies": {
+    "react": ">=15.3.0",
+    "react-dom": ">=15.3.0"
   },
   "devDependencies": {
     "babel": "6.5.2",
@@ -56,10 +75,13 @@
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.12.3"
   },
+  "repository" :{
+    "type" : "git",
+    "url" : "https://github.com/joxoo/react-material.git"
+  },
   "scripts": {
     "lint": "eslint src",
     "build": "npm run lint && babel --stage 1 ./src --out-dir ./lib",
-    "postinstall": "babel ./src --out-dir ./lib",
     "test": "npm run test:unit:with-coverage",
     "test:unit": "NODE_ENV=test mocha test/unit --opts test/unit/mocha.opts",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover --report text --report html node_modules/mocha/bin/_mocha -- --opts test/unit/mocha.opts"
