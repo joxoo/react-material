@@ -86,15 +86,6 @@
   }
 }
 
-.picker-date-days {
-  span:nth-child(7):after{
-    content: '.';
-    height: 0;
-    display: block;
-    min-width: 100%;
-  }
-}
-
 .picker-date-day {
   cursor: pointer;
   position: relative;

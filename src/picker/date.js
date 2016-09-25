@@ -22,7 +22,7 @@ const createDefaultState = (props) => {
     const today = new Date();
     const date = props.date || today;
     const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-    const endDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 0);
+    const endDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
     return {
         selectedDate: moment(date),
@@ -62,7 +62,7 @@ class PickerDate extends React.PureComponent {
 
     updateSelected(date) {
         const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-        const endDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 0);
+        const endDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
         this.setState({
             selectedMonth: {
@@ -124,10 +124,12 @@ class PickerDate extends React.PureComponent {
                     </div>
                     <div className='picker-date-days' onClick={ this.handleSelect }>
                         { days.map((isDay, key) => {
-                            const className = isSelectedDateInMonth && selectedMonthDate === day ?
+                            const className = isSelectedDateInMonth && isDay && selectedMonthDate === day ?
                                 'picker-date-day-selected': 'picker-date-day';
                             return (
-                                <span className={ className } data-key={ day } key={ key }>{ isDay ? day++ : '' }</span>
+                                <span className={ className } data-key={ isDay ?  day : 0 } key={ key }>
+                                    { isDay ? day++ : '' }
+                                </span>
                             );
                         }) }
                     </div>
