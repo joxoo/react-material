@@ -39,7 +39,7 @@ class FlatButton extends React.Component {
     }
 
     renderLabel(label, className) {
-        return (label ? <FlatButtonLabel className={ className } label={ label } /> : null );
+        return (label ? <FlatButtonLabel key='btn-label' className={ className } label={ label } /> : null );
     }
 
     render() {
