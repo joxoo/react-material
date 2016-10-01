@@ -19,6 +19,7 @@ class InputText extends React.Component {
         floating: PropTypes.bool,
         focused: PropTypes.bool,
         validate: PropTypes.func,
+        invalid: PropTypes.bool,
         errorText: PropTypes.string,
         onChange: PropTypes.func
     };
@@ -39,6 +40,9 @@ class InputText extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.value !== undefined) {
             this.setState({ value: nextProps.value });
+        }
+        if (nextProps.invalid !== undefined) {
+            this.setState({ invalid: nextProps.invalid });
         }
     }
 
