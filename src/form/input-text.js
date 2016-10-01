@@ -47,12 +47,13 @@ class InputText extends React.Component {
     }
 
     onChange(event) {
+        const {validate, required} = this.props;
         const nativeEventType = event.nativeEvent.type;
         const value = event.target.value;
-        const mustValidate = this.props.required ? true : Boolean(value.length);
-        let inValid = false;
+        const mustValidate = required ? true : Boolean(value.length);
+        let inValid = required ? !Boolean(value.length) : false;
 
-        if (this.props.validate && mustValidate && nativeEventType !== 'input') {
+        if (validate && mustValidate && nativeEventType !== 'input') {
             inValid = !this.props.validate(value);
         }
 
