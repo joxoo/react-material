@@ -32,7 +32,7 @@ class InputText extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        this.state = { focused: Boolean(props.focused), value: props.value || ''};
+        this.state = { focused: Boolean(props.focused) || Boolean(props.value), value: props.value || ''};
         this.onChange = this.onChange.bind(this);
         this.onFocus = this.onFocus.bind(this);
     }
