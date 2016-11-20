@@ -1,70 +1,63 @@
 import React, {PropTypes} from 'react';
-import Avatar from './avatar';
-import FlatButton from './buttons/flat-button';
 import { getClassesStatic } from './addons/get-classes';
 
 class Stepper extends React.Component {
     static propTypes = {
         children: PropTypes.arrayOf(PropTypes.element),
-        stepLabels: PropTypes.arrayOf(PropTypes.string),
         continueLabel: PropTypes.string,
-        cancelLabel: PropTypes.string
+        cancelLabel: PropTypes.string,
+        onStep: PropTypes.func.isRequired,
+        cancelStep: PropTypes.func.isRequired
     };
 
-    constructor(...args) {
-        super(...args);
-        this.state = { openStep: 0, stepProps: [] };
-        this.submitStep = this.submitStep.bind(this);
+    constructor(props, context) {
+        super(props, context);
+        this.state = { openStep: 0, stepCount : props.children.length };
+        this.handleStep = this.handleStep.bind(this);
     }
 
-    submitStep(key, props, event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const nextStep = key + 1;
-        const nextState = { openStep: nextStep, stepProps: this.state.stepProps };
-        let valid = true;
+    handleStep(type, props, event) {
+        const { openStep, stepCount } = this.state;
 
-        if (typeof props.validate === 'function') {
-            valid = props.validate(event);
+        if (type === 'open') {
+            if (props.stepNumber < openStep) {
+                return this.setState({ openStep: props.stepNumber });
+            }
+            return;
         }
 
-        if (valid && typeof props.prepareNextStepProps === 'function') {
-            nextState.stepProps[key] = props.prepareNextStepProps(event) || {};
+        if (type === 'submit') {
+            if (openStep < stepCount) {
+                this.setState({ openStep: openStep + 1 });
+            }
+
+            return this.props.onStep(props, event);
         }
 
-        if (valid) {
-            this.setState(nextState);
-        }
-
-
+        return this.props.cancelStep(props, event);
     }
 
     render() {
-        const { stepLabels, children, continueLabel, cancelLabel, ...others } = this.props;
+        const { children, continueLabel, cancelLabel, ...others } = this.props;
         const openStep = this.state.openStep;
 
         return (
             <div {...others} className={ getClassesStatic('stepper', others) }>
                 { children.map((child, key) => {
-                    const component = React.cloneElement(child, { stepProps: this.state.stepProps } );
                     const avatar = key < openStep ? { icon: { icon: '0xE5CA' } } :
                         { letter : { character: String(key + 1) } };
-                    return (
-                        <form key={ key } onSubmit={ this.submitStep.bind(null, key, child.props) }
-                            className={ getClassesStatic('stepper-step', { open: openStep === key }) } >
-                            <div className='stepper-step-label'>
-                                <Avatar {...avatar}/>
-                                { stepLabels[key] && <span className='stepper-step-title'>{ stepLabels[key] }</span> }
-                            </div>
-                            <div className='stepper-step-content'>
-                                { component }
-                                <div className='stepper-step-actions'>
-                                    <FlatButton label={ continueLabel } primary={ true }/>
-                                    <FlatButton label={ cancelLabel } />
-                                </div>
-                            </div>
-                        </form>
-                    );
+
+                    return React.cloneElement(child,
+                        {
+                            stepProps: this.state.stepProps,
+                            avatar,
+                            continueLabel,
+                            cancelLabel,
+                            handleStep: this.handleStep,
+                            open: openStep === key,
+                            stepNumber: key
+                        });
+
                 }) }
             </div>
         );

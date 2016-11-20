@@ -10,6 +10,7 @@ import IconButton from './buttons/icon-button';
 import FlatButton from './buttons/flat-button';
 import FloatingActionButton from './buttons/floating-action-button';
 import MenuItem from './menu/item';
+import MenuDropDown from './menu/drop-down';
 import RaisedButton from './buttons/raised-button';
 import Card from './card';
 import CardHeader from './card/card-header';
@@ -24,6 +25,7 @@ import RichMedia from './rich-media';
 import SearchFilter from './text-fields/search-filter';
 import Snackbar from './snackbar';
 import Stepper from './stepper';
+import StepperStep from './stepper/step';
 import ProgressLinear from './progress/linear';
 import InputText from './form/input-text';
 import InputControl from './form/input-control';
@@ -47,6 +49,7 @@ export {
     FlatButton,
     FloatingActionButton,
     MenuItem,
+    MenuDropDown,
     RaisedButton,
     Card,
     CardHeader,
@@ -65,6 +68,7 @@ export {
     SearchFilter,
     Snackbar,
     Stepper,
+    StepperStep,
     ProgressLinear,
     touchPoint
 };

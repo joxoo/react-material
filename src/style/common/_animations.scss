@@ -22,6 +22,11 @@
     to { width: 100% }
 }
 
+@keyframes drop-down {
+    from { height: 0vh }
+    to { height: 40vh }
+}
+
 @-webkit-keyframes dialogwrapper{
     from { opacity: 0 }
     to { opacity: 1 }
