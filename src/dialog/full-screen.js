@@ -5,14 +5,15 @@ import FlatButton from '../buttons/flat-button';
 import { getClassesStatic } from '../addons/get-classes';
 
 const DialogFullScreen = (props) => {
-    const elementRight =  props.confirmation ? <FlatButton {...props.confirmation } /> : null;
-    const elementLeft = <IconButton icon={ props.confirmation ? '0xE14C' : '0xE5C4' } onClick={ props.cancel }/>;
+    const { confirmation, title, cancel, children, ...others } = props;
+    const elementRight =  props.confirmation ? <FlatButton {...confirmation } /> : null;
+    const elementLeft = <IconButton icon={ confirmation ? '0xE14C' : '0xE5C4' } onClick={ cancel }/>;
 
     return (
         <div className='dialog-wrapper'>
-            <div className={ getClassesStatic('dialog-fullscreen', props) }>
-               <AppBar title={ props.title } elementLeft={ elementLeft } elementRight={ elementRight } />
-                <div className='dialog-fullscreen-content'>{ props.children }</div>
+            <div className={ getClassesStatic('dialog-fullscreen', others) }>
+               <AppBar title={ title } elementLeft={ elementLeft } elementRight={ elementRight } />
+                <div className='dialog-fullscreen-content'>{ children }</div>
             </div>
         </div>
     );

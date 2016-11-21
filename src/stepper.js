@@ -42,7 +42,7 @@ class Stepper extends React.Component {
         const openStep = this.state.openStep;
 
         return (
-            <div {...others} className={ getClassesStatic('stepper', others) }>
+            <div className={ getClassesStatic('stepper', others) }>
                 { children.map((child, key) => {
                     const avatar = key < openStep ? { icon: { icon: '0xE5CA' } } :
                         { letter : { character: String(key + 1) } };
@@ -55,7 +55,8 @@ class Stepper extends React.Component {
                             cancelLabel,
                             handleStep: this.handleStep,
                             open: openStep === key,
-                            stepNumber: key
+                            stepNumber: key,
+                            key
                         });
 
                 }) }

@@ -4,6 +4,17 @@ import Avatar from '../avatar';
 import FlatButton from '../buttons/flat-button';
 
 class StepperStep extends React.PureComponent {
+    static propTypes = {
+        validate: PropTypes.func,
+        handleStep: PropTypes.func,
+        open: PropTypes.bool,
+        label: PropTypes.string,
+        continueLabel: PropTypes.string,
+        cancelLabel: PropTypes.string,
+        step: PropTypes.number,
+        avatar: PropTypes.object
+    };
+
     constructor(...args) {
         super(...args);
         this.submitStep = this.submitStep.bind(this);
@@ -63,15 +74,5 @@ class StepperStep extends React.PureComponent {
     }
 }
 
-StepperStep.propTypes = {
-    validate: PropTypes.func,
-    handleStep: PropTypes.func.isRequired,
-    open: PropTypes.boolean,
-    label: PropTypes.string,
-    continueLabel: PropTypes.string,
-    cancelLabel: PropTypes.string,
-    step: PropTypes.number,
-    avatar: PropTypes.object
-};
 
 export default StepperStep;

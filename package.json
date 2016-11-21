@@ -1,6 +1,6 @@
 {
   "name": "jss-react-material",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Google Material Components for React",
   "main": "lib/index.js",
   "config": {
