@@ -58,6 +58,7 @@ body {
 - Tabs
 - InputControl
 - InputText
+- InputArea
 - SelectionControl
 - Paper
 - PickerDate
@@ -74,6 +75,7 @@ body {
 Yes please! See the [contributing guidelines][contributing] for details.
 
 ### Changelog
+- V0.1.7 Add TextArea Component
 - V0.1.6 Reduce React Warnings
 - V0.1.5 Add Menu DropDown and StepperStep
 - V0.1.0 Add basic Material Design Components
