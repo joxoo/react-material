@@ -9,7 +9,8 @@ class MenuDropDown extends React.PureComponent {
             value: PropTypes.string.isRequired
         })),
         selected: PropTypes.string,
-        name: PropTypes.string.isRequired
+        name: PropTypes.string.isRequired,
+        onSelect: PropTypes.func
     };
 
     constructor(props, context) {
@@ -30,6 +31,10 @@ class MenuDropDown extends React.PureComponent {
 
     handleSelect(selected) {
         this.setState({ selected, open: false });
+
+        if (this.props.onSelect) {
+            this.props.onSelect(selected);
+        }
     }
 
     render() {

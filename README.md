@@ -75,6 +75,7 @@ body {
 Yes please! See the [contributing guidelines][contributing] for details.
 
 ### Changelog
+- V0.1.8 Add MenuDropDown onSelect prop
 - V0.1.7 Add TextArea Component
 - V0.1.6 Reduce React Warnings
 - V0.1.5 Add Menu DropDown and StepperStep

@@ -24,7 +24,7 @@
 
 @keyframes drop-down {
     from { height: 0vh }
-    to { height: 40vh }
+    to { height: auto; max-height: 40vh }
 }
 
 @-webkit-keyframes dialogwrapper{
