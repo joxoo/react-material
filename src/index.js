@@ -28,6 +28,7 @@ import Stepper from './stepper';
 import StepperStep from './stepper/step';
 import ProgressLinear from './progress/linear';
 import InputText from './form/input-text';
+import InputSelect from './form/input-select';
 import InputArea from './form/input-area';
 import InputControl from './form/input-control';
 import SelectionControl from './form/selection-control';
@@ -62,6 +63,7 @@ export {
     Tabs,
     InputControl,
     InputText,
+    InputSelect,
     InputArea,
     SelectionControl,
     Paper,

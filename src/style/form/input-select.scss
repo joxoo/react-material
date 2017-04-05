@@ -1,0 +1,41 @@
+.input-select-down-options {
+    padding: rem(16) 0;
+    @include box-shadow-multiple(0, rem(1), rem(6), rgba(0, 0, 0, 0.12), 0, rem(1), rem(4), rgba(0, 0, 0, 0.12));
+    position: absolute;
+    background: $white;
+    max-height: rem(196);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    overflow: auto;
+
+    display: none;
+    z-index: 1000;
+
+    &.input-select-down-options-focused {
+        display: block;
+        animation: select-drop-down 0.25s forwards;
+    }
+
+    .menu-item:hover {
+        background: $faintBlack;
+    }
+    .menu-item-selected {
+        color: $textColorSecondary;
+    }
+
+    &::-webkit-scrollbar {
+        background: $fullWhite;
+        width: rem(4);
+    }
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+        border-radius: rem(8);
+        background-color: $darkWhite;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: rem(8);
+        background-color: $backgroundColorPrimary;
+    }
+}

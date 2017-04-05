@@ -41,9 +41,10 @@
     position: relative;
     padding: rem(8) 0;
     box-sizing: border-box;
-    height: rem(72);
+    max-height: rem(72);
+    min-height: rem(72);
     &.input-text-invalid {
-        height: rem(98);
+        max-height: rem(98);
     }
 }
 

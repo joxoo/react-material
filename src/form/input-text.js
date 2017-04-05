@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import { getClasses } from '../addons';
-
-@getClasses
+import { getClassesStatic } from '../addons/get-classes';
 
 class InputText extends React.Component {
 
@@ -21,7 +19,11 @@ class InputText extends React.Component {
         validate: PropTypes.func,
         invalid: PropTypes.bool,
         errorText: PropTypes.string,
-        onChange: PropTypes.func
+        onChange: PropTypes.func,
+        onFocus: PropTypes.func,
+        onBlur: PropTypes.func,
+        onDragStart: PropTypes.func,
+        onDrop: PropTypes.func
     };
 
     static defaultProps = {
@@ -35,6 +37,7 @@ class InputText extends React.Component {
         this.state = { focused: Boolean(props.focused) || Boolean(props.value), value: props.value || ''};
         this.onChange = this.onChange.bind(this);
         this.onFocus = this.onFocus.bind(this);
+        this.onBlur = this.onBlur.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -46,11 +49,14 @@ class InputText extends React.Component {
         }
     }
 
-    onFocus() {
+    onFocus(event) {
         this.setState({ focused: true });
+        if (this.props.onFocus) {
+            this.props.onFocus(event);
+        }
     }
 
-    onChange(event) {
+    validate(event, handler) {
         const {validate, required} = this.props;
         const nativeEventType = event.nativeEvent.type;
         const value = event.target.value;
@@ -61,29 +67,40 @@ class InputText extends React.Component {
             inValid = !this.props.validate(value);
         }
 
-        if (this.props.onChange && !inValid) {
-            this.props.onChange(value);
-        }
-
         this.setState({
             focused: false,
             typed: nativeEventType === 'input' || Boolean(value.length),
             invalid: inValid,
             value
         });
+
+        if (handler && !inValid) {
+            handler(value, event);
+        }
+    }
+
+    onBlur(event) {
+        this.validate(event, this.props.onBlur);
+    }
+
+    onChange(event) {
+        this.validate(event, this.props.onChange);
     }
 
     render() {
-        const { label, type, name, disabled, placeholder, errorText, required, list, autoComplete, ...others } = this.props;
+        const { label, type, name, disabled, placeholder, errorText, required, list,
+            autoComplete, onDrop, onDragStart, children, ...others } = this.props;
         const { value, focused, typed, invalid } = this.state;
-        const inputProps = { type, value, name, disabled, placeholder, required, list, autoComplete, autoFocus: focused };
+        const inputProps = { type, value, name, disabled, placeholder, required, list, autoComplete,
+            autoFocus: focused, onDragStart, onDrop};
 
         return(
-            <label className={ this.getClasses('input-text', Object.assign(others, { focused, typed, invalid })) }>
+            <label className={ getClassesStatic('input-text', Object.assign(others, { focused, typed, invalid })) }>
                 <span className='input-text-label'>{ `${label}${required ? ' (*)' : ''}` }</span>
                 <input className='input-text-field' {...inputProps}
-                       onFocus={ this.onFocus } onChange={ this.onChange } onBlur={ this.onChange } />
-                { this.state.invalid ? <span className='input-text-error'>{ errorText }</span> : null }
+                       onFocus={ this.onFocus } onChange={ this.onChange } onBlur={ this.onBlur } />
+                { children }
+                { this.state.invalid && errorText && <span className='input-text-error'>{ errorText }</span> }
             </label>
         );
     }

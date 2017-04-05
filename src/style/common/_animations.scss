@@ -27,6 +27,11 @@
     to { height: auto; max-height: 40vh }
 }
 
+@keyframes select-drop-down {
+    from { height: 0vh }
+    to { height: auto; max-height: rem(196) }
+}
+
 @-webkit-keyframes dialogwrapper{
     from { opacity: 0 }
     to { opacity: 1 }
