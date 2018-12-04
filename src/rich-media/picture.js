@@ -4,7 +4,7 @@ import { getClasses, MaterialPropTypes } from  '../addons';
 
 const findMediaIndex = (sources, width) => {
     const index = sources.reverse().findIndex((source) => {
-        const matches = source.media.match(/^\(([a-z\-]+): ([0-9]+)([a-z]+)\)$/);
+        const matches = source.media.match(/^\(([a-z-]+): ([0-9]+)([a-z]+)\)$/);
         if(!matches) {
             return false;
         }
@@ -46,7 +46,7 @@ class PictureElement extends React.Component {
         this.state = { index: 0 };
     }
     componentDidMount() {
-        if (!Boolean(window.HTMLPictureElement)) {
+        if (!window.HTMLPictureElement) {
             const picture = ReactDOM.findDOMNode(this).getElementsByTagName('img')[0];
             const sources = this.props.sources;
             const width = picture.width;

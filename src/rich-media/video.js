@@ -30,7 +30,7 @@ class Video extends React.Component {
             sources,
             poster,
             ...others
-            } = this.props;
+        } = this.props;
 
         const options = {
             autoplay,

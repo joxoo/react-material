@@ -38,8 +38,11 @@ class MenuItem extends React.Component {
         const fontIcon = typeof icon === 'string' ? { icon } : icon;
 
         return (
-            <div { ...others } className={ this.getClasses('menu-item', others) }
-               onClick={ this.onClickHandler } ref={ this.setTouchReference }>
+            <div
+                { ...others }
+                className={ this.getClasses('menu-item', others) }
+                onClick={ this.onClickHandler } ref={ this.setTouchReference }
+            >
                 <strong className='menu-item-label' datatype={ value }>{ label }</strong>
                 { fontIcon && <FontIcon className='menu-item-icon' {...fontIcon} /> }
                 <span className='menu-item-tap' ref={ this.setTouchTapReference } />

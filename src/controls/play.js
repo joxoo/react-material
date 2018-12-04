@@ -20,9 +20,11 @@ class ControlPlay extends React.Component {
 
     render() {
         return (
-            <IconButton onClick={ this.handleOnClick }
-                        className={ this.getClasses('control-play', this.props) }
-                        icon='0xE037' />
+            <IconButton
+                onClick={ this.handleOnClick }
+                className={ this.getClasses('control-play', this.props) }
+                icon='0xE037'
+            />
         );
     }
 }

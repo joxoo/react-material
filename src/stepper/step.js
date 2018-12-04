@@ -55,8 +55,10 @@ class StepperStep extends React.PureComponent {
         const { open, label, avatar, children, continueLabel, cancelLabel } = this.props;
 
         return (
-            <form onSubmit={ this.submitStep }
-                  className={ getClassesStatic('stepper-step', { open }) } >
+            <form
+                onSubmit={ this.submitStep }
+                className={ getClassesStatic('stepper-step', { open }) }
+            >
                 <div className='stepper-step-label' onClick={ this.openStep }>
                     <Avatar {...avatar}/>
                     { label && <span className='stepper-step-title'>{ label }</span> }
@@ -64,8 +66,10 @@ class StepperStep extends React.PureComponent {
                 <div className='stepper-step-content'>
                     { children }
                     <div className='stepper-step-actions'>
-                        <FlatButton label={ continueLabel }
-                                    primary={ true } />
+                        <FlatButton
+                            label={ continueLabel }
+                            primary={ true }
+                        />
                         <FlatButton label={ cancelLabel } onClick={ this.chancelStep }/>
                     </div>
                 </div>

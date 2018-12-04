@@ -59,18 +59,23 @@ class AutoComplete extends React.Component {
             return (
                 <div className={ this.getClasses('auto-complete', others ) }>
                     <div className='auto-complete-search'>
-                        <IconButton className='auto-complete-icon-left'
-                                    icon='0xE5C4' onClick={ onClose }/>
+                        <IconButton
+                            className='auto-complete-icon-left'
+                            icon='0xE5C4' onClick={ onClose }
+                        />
                         <div className='auto-complete-input'>
-                            <input type='search' ref={ (ref) => this.autoCompleteInput = ref }
-                                   defaultValue={ this.state.defaultValue }
-                                   placeholder={ placeholder }
-                                   name={ name }
-                                   autoComplete='off'
-                                   onChange={ this.handleOnInput } autoFocus />
+                            <input
+                                type='search'
+                                ref={ (ref) => this.autoCompleteInput = ref }
+                                defaultValue={ this.state.defaultValue }
+                                placeholder={ placeholder }
+                                name={ name }
+                                autoComplete='off'
+                                onChange={ this.handleOnInput }
+                                autoFocus
+                            />
                         </div>
-                        <IconButton className='auto-complete-icon-right'
-                                    icon='0xE5CD' onClick={ this.handleClear }/>
+                        <IconButton className='auto-complete-icon-right' icon='0xE5CD' onClick={ this.handleClear }/>
                     </div>
                     { data.length > 0 && this.renderData(data) }
                     { children && <div className='auto-complete-results'>{ children }</div> }

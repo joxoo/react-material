@@ -48,8 +48,7 @@ class MenuDropDown extends React.PureComponent {
                 <div className='menu-drop-down-selected' onClick={ this.handleOpen }>{ selectedElement.label }</div>
                 <div className='menu-drop-down-options'>
                     { options.map((item, key) =>
-                        <MenuItem key={ key } selected={ item.value === selected } { ...item }
-                                  onClick={ this.handleSelect } /> ) }
+                        <MenuItem { ...item } key={ key } selected={ item.value === selected } onClick={ this.handleSelect } /> ) }
                 </div>
             </div>
         );

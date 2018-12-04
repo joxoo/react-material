@@ -74,12 +74,15 @@ class InputSelect extends React.Component {
         const { focused, value, selectedLabel } = this.state;
 
         return(
-            <InputText {...props} onFocus={ this.onFocus } onChange={ undefined }
-                       value={ selectedLabel } >
+            <InputText
+                {...props}
+                onFocus={ this.onFocus }
+                onChange={ undefined }
+                value={ selectedLabel }
+            >
                 <div className={ getClassesStatic('input-select-down-options', { focused }) }>
                     { options.map((item, key) =>
-                        <MenuItem key={ key } selected={ item.value === value } { ...item }
-                                  onClick={ this.handleSelect } /> ) }
+                        <MenuItem { ...item } key={ key } selected={ item.value === value } onClick={ this.handleSelect } /> ) }
                 </div>
             </InputText>
         );

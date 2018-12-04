@@ -75,6 +75,7 @@ body {
 Yes please! See the [contributing guidelines][contributing] for details.
 
 ### Changelog
+- V0.2.0 update dependencies fix linting issues 
 - V0.1.20 Add compatibility for string icons 
 - V0.1.9 Bump Version material icons 
 - V0.1.8 Add MenuDropDown onSelect prop

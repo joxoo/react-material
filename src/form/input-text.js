@@ -61,7 +61,7 @@ class InputText extends React.Component {
         const nativeEventType = event.nativeEvent.type;
         const value = event.target.value;
         const mustValidate = required ? true : Boolean(value.length);
-        let inValid = required ? !Boolean(value.length) : false;
+        let inValid = required ? !value.length : false;
 
         if (validate && mustValidate && nativeEventType !== 'input') {
             inValid = !this.props.validate(value);
@@ -97,8 +97,13 @@ class InputText extends React.Component {
         return(
             <label className={ getClassesStatic('input-text', Object.assign(others, { focused, typed, invalid })) }>
                 <span className='input-text-label'>{ `${label}${required ? ' (*)' : ''}` }</span>
-                <input className='input-text-field' {...inputProps}
-                       onFocus={ this.onFocus } onChange={ this.onChange } onBlur={ this.onBlur } />
+                <input
+                    {...inputProps}
+                    className='input-text-field'
+                    onFocus={ this.onFocus }
+                    onChange={ this.onChange }
+                    onBlur={ this.onBlur }
+                />
                 { children }
                 { this.state.invalid && errorText && <span className='input-text-error'>{ errorText }</span> }
             </label>

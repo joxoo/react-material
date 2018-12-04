@@ -143,8 +143,10 @@ class AppBar extends React.Component {
     render() {
         const props = this.props;
         return (
-            <Paper rounded={ false } className={ this.getClasses('app-bar', { className: props.className }) }
-                   depth={ props.depth }>
+            <Paper
+                rounded={ false }
+                className={ this.getClasses('app-bar', { className: props.className }) }
+                depth={ props.depth }>
                 { this.renderMenuElementLeft( props ) }
                 { this.renderTitle(props.title, props.level) }
                 { this.renderMenuElementRight( props ) }

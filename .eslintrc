@@ -4,10 +4,6 @@
     "globals": {
         "Promise": true
     },
-
-    "ecmaFeatures": {
-        "jsx": true
-    },
     "plugins": [ "eslint-plugin-react" ],
 
     "rules": {

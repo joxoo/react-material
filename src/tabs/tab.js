@@ -31,11 +31,14 @@ class Tab extends React.Component {
         const { label, icon, onSelect, value, ...others } = this.props;
 
         return (
-            <button { ...others } onTouchStart={ this._handleAnmation }
-                  onMouseDown={ this._handleAnmation }
-                  onClick={ onSelect.bind(null, value) }
-                  className={ this.getClasses('tab-button', others) }
-                  ref={ this.setTouchReference }>
+            <button
+                { ...others }
+                onTouchStart={ this._handleAnmation }
+                onMouseDown={ this._handleAnmation }
+                onClick={ onSelect.bind(null, value) }
+                className={ this.getClasses('tab-button', others) }
+                ref={ this.setTouchReference }
+            >
                 <span className='tab-button-tap' ref={ this.setTouchTapReference }/>
                 { icon && <FontIcon { ...icon } /> }
                 { label && <span className='tab-button-label'>{ label }</span> }

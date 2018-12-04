@@ -35,11 +35,12 @@ class SelectionControl extends React.Component {
                     const { disabled, label, value, count } = control;
 
                     return (
-                        <InputControl { ... {type, name, disabled, value, label } }
-                               checked={ checked.indexOf(value) !== -1 }
-                               onChange={ onChange }
-                               key={ `section-control-item-${key}` } >
-
+                        <InputControl
+                            { ... {type, name, disabled, value, label } }
+                            checked={ checked.indexOf(value) !== -1 }
+                            onChange={ onChange }
+                            key={ `section-control-item-${key}` }
+                        >
                             { count && <span className='selection-control-count'>({ count })</span> }
                         </InputControl>
                     );

@@ -12,7 +12,7 @@ const DialogFullScreen = (props) => {
     return (
         <div className='dialog-wrapper'>
             <div className={ getClassesStatic('dialog-fullscreen', others) }>
-               <AppBar title={ title } elementLeft={ elementLeft } elementRight={ elementRight } />
+                <AppBar title={ title } elementLeft={ elementLeft } elementRight={ elementRight } />
                 <div className='dialog-fullscreen-content'>{ children }</div>
             </div>
         </div>

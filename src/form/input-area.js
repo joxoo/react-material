@@ -51,7 +51,7 @@ class InputArea extends React.Component {
         const nativeEventType = event.nativeEvent.type;
         const value = event.target.value;
         const mustValidate = required ? true : Boolean(value.length);
-        let inValid = required ? !Boolean(value.length) : false;
+        let inValid = required ? !value.length : false;
 
         if (validate && mustValidate && nativeEventType !== 'input') {
             inValid = !this.props.validate(value);
@@ -77,8 +77,12 @@ class InputArea extends React.Component {
         return(
             <label className={ this.getClasses('input-area', Object.assign(others, { focused, typed, invalid })) }>
                 <span className='input-area-label'>{ `${label}${required ? ' (*)' : ''}` }</span>
-                <textarea className='input-area-field' {...inputProps}
-                       onFocus={ this.onFocus } onChange={ this.onChange } onBlur={ this.onChange } />
+                <textarea
+                    className='input-area-field' {...inputProps}
+                    onFocus={ this.onFocus }
+                    onChange={ this.onChange }
+                    onBlur={ this.onChange }
+                />
                 { this.state.invalid ? <span className='input-area-error'>{ errorText }</span> : null }
             </label>
         );

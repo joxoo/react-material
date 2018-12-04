@@ -42,15 +42,17 @@ class FloatingActionButton extends React.Component {
             size,
             icon,
             ...others
-            } = this.props;
+        } = this.props;
 
         return (
-            <button onTouchStart={ this._handleAnmation }
-                    onMouseDown={ this._handleAnmation }
-                    disabled={ disabled }
-                    className={ this.getClasses('floating-action-button', { className, size }) }
-                    ref={ this.setTouchReference }
-                    { ...others } >
+            <button
+                onTouchStart={ this._handleAnmation }
+                onMouseDown={ this._handleAnmation }
+                disabled={ disabled }
+                className={ this.getClasses('floating-action-button', { className, size }) }
+                ref={ this.setTouchReference }
+                { ...others }
+            >
                 <span className='floating-action-button-tap' ref={ this.setTouchTapReference }/>
                 { this.renderFontIcon(icon) }
 
