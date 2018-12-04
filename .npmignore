@@ -1,0 +1,6 @@
+src
+.istanbul.yml
+.scss-lint.yml
+.travis.yml
+.babelrc
+.eslintrc
