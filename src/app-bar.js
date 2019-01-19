@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import shallowCompare from 'react-addons-shallow-compare';
 import { getClasses } from './addons';
 import Paper from './paper';
@@ -17,9 +18,9 @@ class AppBar extends React.Component {
         iconRight: PropTypes.string,
         elementLeft: PropTypes.element,
         elementRight: PropTypes.element,
-        title: React.PropTypes.node,
-        depth: React.PropTypes.number,
-        level: React.PropTypes.number
+        title: PropTypes.node,
+        depth: PropTypes.number,
+        level: PropTypes.number
     };
 
     static defaultProps = {

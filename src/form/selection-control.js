@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { getClasses } from '../addons';
 import Header from '../header';
 import InputControl from './input-control';

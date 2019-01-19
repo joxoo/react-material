@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {getClasses, touchPoint, hasTouchEvents} from '../addons';
 import FlatButtonLabel from './button-label';
 

@@ -75,6 +75,8 @@ body {
 Yes please! See the [contributing guidelines][contributing] for details.
 
 ### Changelog
+- Fix error in prop types
+- V0.3.0 update to react 16.7
 - V0.2.0 update dependencies fix linting issues 
 - V0.1.20 Add compatibility for string icons 
 - V0.1.9 Bump Version material icons 

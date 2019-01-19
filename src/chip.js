@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { getClassesStatic } from  './addons/get-classes';
 import FontIcon from './font-icon';
 import Avatar from './avatar';

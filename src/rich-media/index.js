@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { MaterialPropTypes } from  '../addons';
 import { getClassesStatic  } from  '../addons/get-classes';
 import Audio from './audio';

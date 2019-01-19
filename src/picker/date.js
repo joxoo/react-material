@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import DialogAlert from '../dialog/alert';
 import IconButton from '../buttons/icon-button';
 import moment from 'moment';

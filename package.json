@@ -1,6 +1,6 @@
 {
   "name": "jss-react-material",
-  "version": "0.2.0",
+  "version": "0.3.3",
   "description": "Google Material Components for React",
   "main": "lib/index.js",
   "config": {
@@ -27,15 +27,15 @@
   "dependencies": {
     "lodash": "4.17.11",
     "moment": "2.22.2",
-    "react": "15.3.0",
-    "react-addons-pure-render-mixin": "15.6.2",
+    "prop-types": "15.6.2",
+    "react": "16.7.0",
     "react-addons-shallow-compare": "15.6.2",
-    "react-dom": "15.6.2",
+    "react-dom": "16.7.0",
     "valid-url": "1.0.9"
   },
   "peerDependencies": {
-    "react": ">=15.3.0",
-    "react-dom": ">=15.3.0"
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
   },
   "devDependencies": {
     "babel": "6.23.0",
